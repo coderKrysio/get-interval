@@ -1,30 +1,57 @@
-import Image from 'next/image'
-import React from 'react'
+import { useEffect } from "react"
+
+const timeIntervals = [
+    "8:30 - 10:00",
+    "10:05 - 11:35",
+    "11:40 - 13:10",
+    "13:15 - 14:45",
+    "14:50 - 16:20",
+    "16:25 - 17:55",
+    "18:00 - 19:30"
+]
+
+const intervals: string[] = [timeIntervals[0]]
+console.log(intervals.length)
 
 const Form = () => {
+    const ListIntervals = () => {
+        return(
+            <div>
+            hi
+                {/* {intervals.map((currentValue: string, index: number) =>
+                    <div className="w-full flex flex-col justify-center items-center">
+                        <label htmlFor="interval" className='text-left w-full'>Choose your interval</label>
+                        <select id="interval" className='text-black p-2 w-full rounded-lg border-2 border-black'>
+                            {timeIntervals.map((data: string) => <option value={data}>{data}</option>
+                            )}
+                        </select>
+                    </div>
+                )} */}
+            </div>
+        )
+    }
+
+    const addInterval = () => {
+        intervals.push(timeIntervals[0])
+    }
+
+    useEffect(() => {
+        <ListIntervals />
+    }, [intervals.length])
+
     return (
         <form
-        className='border-2 border-white text-white p-4 flex flex-col justify-center items-center'
+        className='border-2 border-white text-white w-fit p-4 flex flex-col justify-center items-center'
+        onSubmit={(e) => {
+            e.preventDefault()
+        }}
         >
-            <div className='flex justify-center items-center'>
-                <Image 
-                width={100} 
-                height={100} 
-                src={"https://img.icons8.com/ios-filled/100/000000/session-timeout.png"}
-                alt="session-timeout"/>
-
-                <h3
-                className='text-3xl font-semibold mb-5 text-[#48d399]'
-                >Get Intervals</h3>
-            </div>
-            
-
             <label htmlFor="my-name" className='text-left w-full'>Name</label>
             <input 
             name="name" 
             id="my-name" 
             type="text" 
-            className='placeholder:text-white p-2 border-2 border-white bg-transparent rounded-lg mb-4' 
+            className='placeholder:text-white w-[244px] mb-4 p-2 border-2 border-white bg-transparent rounded-lg' 
             placeholder='name' />
 
             <label htmlFor="code" className='text-left w-full'>Room Code</label>
@@ -32,22 +59,13 @@ const Form = () => {
             name="code" 
             id="code" 
             type="text" 
-            className='placeholder:text-white p-2 border-2 border-white bg-transparent rounded-lg mb-4' 
+            className='placeholder:text-white w-[244px] mb-4 p-2 border-2 border-white bg-transparent rounded-lg' 
             placeholder='room code' />
-
-            <select className='text-black border-2 border-black m-3'>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-            </select>
-
-            <select className='text-black border-2 border-black m-3'>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-            </select>
+            
+            <button
+            className="m-4 p-2 border-2 border-white rounded-lg"
+            onClick={() => addInterval()}
+            >Add interval</button>
         </form>
     )
 }
