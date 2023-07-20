@@ -16,6 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="https://img.icons8.com/ios-filled/100/48D399/session-timeout.png" sizes="any" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
