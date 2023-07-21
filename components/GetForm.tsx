@@ -32,6 +32,11 @@ const GetForm = () => {
                 >Room Code: {roomCode}</p>
 
                 <Form />
+
+                
+                <button
+                className="absolute bottom-0 right-0 m-4 mb-6 py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
+                >Results</button>
             </div>            
         </div>
     )
