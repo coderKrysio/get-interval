@@ -25,7 +25,7 @@ const GetForm = () => {
             </div>
             
             <div
-            className="relative w-fit border-2 border-white ml-6 p-8 rounded-2xl flex justify-start items-start"
+            className="relative w-fit border-2 border-white ml-6 p-8 rounded-2xl flex justify-start items-start bg-[#16161a]"
             >
                 <div>
                     <p
@@ -35,7 +35,7 @@ const GetForm = () => {
                     <Form />
                 </div>
                 
-                <div className="mt-[20px]">
+                <div className="mt-[20px] ml-[20px]">
                     <iframe className="border-none w-[450px] h-[275px] z-[-1]" src="https://lottie.host/?file=bb4ff104-0736-4bec-b1f9-ffd889aef6e1/QFgg5zIw0w.json"></iframe>
                 </div>
                 

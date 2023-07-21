@@ -13,7 +13,7 @@ const Form = () => {
     const renderForm = () => {
         return (
             <form
-            className='w-[350px] border-2 border-white rounded-2xl text-white text-xl p-4 flex flex-col justify-start items-center bg-[#16161a]'
+            className='w-[350px] min-h-[350px] text-xl flex flex-col justify-start items-center'
             onSubmit={(e) => {
                 e.preventDefault()
             }}
@@ -27,10 +27,6 @@ const Form = () => {
                 placeholder='name' />
 
                 <ListIntervals addInterval={addInterval} />
-
-                <button
-                className="m-4 mb-6 py-2 px-5 border-2 border-white rounded-lg font-medium hover:bg-white hover:font-semibold hover:text-[#16161a]"
-                >Submit</button>
             </form>
         )
     }
