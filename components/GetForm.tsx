@@ -9,16 +9,16 @@ const dekko = Dekko({
 
 const GetForm = () => {
     return (
-        <div className={`flex flex-col justify-center items-center ${dekko.className}`}>
-            <div className='flex justify-center items-center gap-4 mb-4'>
+        <div className={`w-screen h-screen flex flex-col justify-center items-center ${dekko.className}`}>
+            <div className='fixed top-0 left-0 flex justify-center items-center gap-4 m-4'>
                 <Image 
-                width={40} 
-                height={40} 
+                width={30} 
+                height={30} 
                 src={"https://img.icons8.com/ios-filled/100/48D399/session-timeout.png"}
                 alt="session-timeout"/>
 
                 <h3
-                className='text-6xl font-semibold text-[#48d399]'
+                className='text-3xl font-semibold text-[#48d399]'
                 >Get Intervals</h3>
             </div>
             
