@@ -25,18 +25,30 @@ const GetForm = () => {
             </div>
             
             <div
-            className="relative w-3/4 border-2 border-white ml-6 p-8 rounded-2xl flex flex-col justify-start items-start"
+            className="relative w-fit border-2 border-white ml-6 p-8 rounded-2xl flex justify-start items-start"
             >
-                <p
-                className="text-2xl mb-[20px]"
-                >Room Code: {roomCode}</p>
+                <div>
+                    <p
+                    className="text-2xl mb-[20px]"
+                    >Room Code: {roomCode}</p>
 
-                <Form />
-
+                    <Form />
+                </div>
                 
-                <button
-                className="absolute bottom-0 right-0 m-4 mb-6 py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
-                >Results</button>
+                <div className="mt-[20px]">
+                    <iframe className="border-none w-[450px] h-[275px] z-[-1]" src="https://lottie.host/?file=bb4ff104-0736-4bec-b1f9-ffd889aef6e1/QFgg5zIw0w.json"></iframe>
+                </div>
+                
+                <div className="absolute bottom-0 right-0 m-8 flex gap-6">
+                    <button
+                    className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
+                    >Submit</button>
+
+                    <button
+                    className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
+                    >Results</button>
+                </div>
+                
             </div>            
         </div>
     )
