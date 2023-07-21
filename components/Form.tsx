@@ -10,6 +10,11 @@ const Form = () => {
         setIntLength(intervals.length)
     }
 
+    const removeInterval = () => {
+        intervals.pop()
+        setIntLength(intervals.length)
+    }
+
     const renderForm = () => {
         return (
             <form
@@ -26,7 +31,7 @@ const Form = () => {
                 className='placeholder:text-slate-300 w-full p-2 mb-6 border-2 border-white bg-transparent rounded-lg focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399]' 
                 placeholder='name' />
 
-                <ListIntervals addInterval={addInterval} />
+                <ListIntervals addInterval={addInterval} removeInterval={removeInterval} />
             </form>
         )
     }
