@@ -8,8 +8,10 @@ const dekko = Dekko({
 })
 
 const GetForm = () => {
+    const roomCode = "ahd-kjha-hjah";
+
     return (
-        <div className={`w-screen h-screen flex flex-col justify-center items-center ${dekko.className}`}>
+        <div className={`w-screen h-screen flex flex-col justify-center items-center text-white ${dekko.className}`}>
             <div className='fixed top-0 left-0 flex justify-center items-center gap-4 m-4'>
                 <Image 
                 width={30} 
@@ -22,7 +24,20 @@ const GetForm = () => {
                 >Get Intervals</h3>
             </div>
             
-            <Form />
+            <div
+            className="relative w-3/4 border-2 border-white ml-6 p-8 rounded-2xl flex flex-col justify-start items-start"
+            >
+                <p
+                className="text-2xl mb-[20px]"
+                >Room Code: {roomCode}</p>
+
+                <Form />
+
+                
+                <button
+                className="absolute bottom-0 right-0 m-4 mb-6 py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
+                >Results</button>
+            </div>            
         </div>
     )
 }

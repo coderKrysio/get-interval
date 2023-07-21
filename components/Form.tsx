@@ -31,10 +31,6 @@ const Form = () => {
                 <button
                 className="m-4 mb-6 py-2 px-5 border-2 border-white rounded-lg font-medium hover:bg-white hover:font-semibold hover:text-[#16161a]"
                 >Submit</button>
-
-                <button
-                className="m-4 mb-6 py-2 px-5 border-2 border-white rounded-lg font-medium hover:bg-white hover:font-semibold hover:text-[#16161a]"
-                >Results</button>
             </form>
         )
     }
