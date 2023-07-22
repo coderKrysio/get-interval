@@ -6,9 +6,9 @@ const GetForm = () => {
 
     return (
         <div
-            className='w-screen h-screen flex flex-col justify-center items-center text-white'
+            className='w-screen min-h-screen flex flex-col justify-center items-center text-white py-[70px]'
         >
-            <div className="fixed top-0 left-0 flex justify-center items-center gap-4 m-4">
+            <div className="fixed top-0 left-0 w-full bg-[#16161a] flex justify-start items-center gap-4 p-4 z-[10]">
                 <Image
                     width={30}
                     height={30}
