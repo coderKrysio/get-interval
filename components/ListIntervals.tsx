@@ -10,8 +10,8 @@ const rajdhani = Rajdhani({
 const ListIntervals = ({addInterval, removeInterval}: any) => {
     return (
         <>
-            {intervals.map((currentValue: string, index: number, key: any) =>
-                <div className="w-full flex flex-col justify-center items-center mb-4">
+            {intervals.map((currentValue: string, index: number,) =>
+                <div className="w-full flex flex-col justify-center items-center mb-4" key={index}>
                     <label htmlFor="interval" className='text-left w-full'>Enter time interval</label>
 
                     <div 
