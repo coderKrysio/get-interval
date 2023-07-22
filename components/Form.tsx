@@ -6,7 +6,7 @@ const Form = () => {
     const [intLength, setIntLength] = useState<number>(intervals.length)
 
     const addInterval = () => {
-        intervals.push(timeIntervals[0])
+        intervals.push(timeIntervals)
         setIntLength(intervals.length)
     }
 

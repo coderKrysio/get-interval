@@ -1,32 +1,34 @@
 import { rajdhani } from '@/lib/fonts'
 import { intervals } from '@/lib/utils'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const ListIntervals = ({ addInterval, removeInterval }: any) => {
     const [errorMsg, setErrorMsg] = useState<string>("");
 
     const [timeRange, setTimeRange] = useState({
-        start: '08:00',
-        end: '10:00'
+        start: 480,
+        end: 600
     })
 
     const updatedRange = (e: any) => {
         const {name, value} = e.target
+        var array = value.split(":");
+        var minutes = (parseInt(array[0], 10) * 60 ) + parseInt(array[1], 10)
         setTimeRange((prev: any) => ({
             ...prev,
-            [name]: value,
+            [name]: minutes,
         }))
-
-        if(timeRange.end < timeRange.start) setErrorMsg("Invalid time intervals: End time > Start time.")
-        else setErrorMsg("")
     }
 
-    console.log(timeRange)
+    useEffect(() => {
+        if(timeRange.end <= timeRange.start) setErrorMsg("Invalid time intervals: End time > Start time.")
+        else setErrorMsg("")
+    }, [timeRange])
 
     return (
         <>
-            {intervals.map((currentValue: string, index: number) => (
+            {intervals.map((currentValue: number[], index: number) => (
                 <div
                     className="w-full flex flex-col justify-center items-center mb-4"
                     key={index}
