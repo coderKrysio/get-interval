@@ -1,11 +1,6 @@
+import { rajdhani } from '@/lib/fonts'
 import { intervals } from '@/lib/utils'
 import Image from 'next/image'
-import { Rajdhani } from 'next/font/google'
-
-const rajdhani = Rajdhani({
-    subsets: ['latin'],
-    weight: '500',
-})
 
 const ListIntervals = ({ addInterval, removeInterval }: any) => {
     return (
