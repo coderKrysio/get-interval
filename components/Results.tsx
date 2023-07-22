@@ -15,9 +15,9 @@ const Results = () => {
 
     return (
         <div
-        className='w-screen min-h-screen flex flex-col justify-center items-center text-white bg-[#16161a]'
+        className='w-screen min-h-screen flex flex-col justify-center items-center text-white bg-[#16161a] py-[70px]'
         >
-            <div className="fixed top-0 left-0 flex justify-center items-center gap-4 m-4">
+            <div className="fixed top-0 left-0 w-full bg-[#16161a] flex justify-start items-center gap-4 p-4 z-[10]">
                 <Image
                     width={30}
                     height={30}
@@ -46,8 +46,12 @@ const Results = () => {
 
             <Timeline />
 
+            <p
+            className="text-3xl text-[#d4d4d4] font-medium pb-3 my-4"
+            >Members Slots</p>
+
             <div
-            className="flex justify-center items-start gap-[70px]"
+            className="max-w[1200px] grid grid-flow-row grid-cols-3 justify-center items-start gap-[70px]"
             >
                 {membersData.map((values: MemberData) => 
                     <MemberInfo name={values.name} intervals={values.intervals} />
