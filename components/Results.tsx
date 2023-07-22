@@ -1,6 +1,14 @@
 import Image from "next/image"
 import Timeline from "./Timeline"
 import MemberInfo from "./MemberInfo"
+import { membersData } from "@/lib/utils"
+
+interface MemberData {
+    id: number,
+    roomCode: string,
+    name: string,
+    intervals: number[][]
+}
 
 const Results = () => {
     const roomCode = 'ahd-kjha-hjah'
@@ -38,7 +46,13 @@ const Results = () => {
 
             <Timeline />
 
-            <MemberInfo />
+            <div
+            className="flex justify-center items-start gap-[70px]"
+            >
+                {membersData.map((values: MemberData) => 
+                    <MemberInfo name={values.name} intervals={values.intervals} />
+                )}
+            </div>
         </div>
     )
 }
