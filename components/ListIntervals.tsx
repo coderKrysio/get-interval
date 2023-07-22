@@ -1,8 +1,29 @@
 import { rajdhani } from '@/lib/fonts'
 import { intervals } from '@/lib/utils'
 import Image from 'next/image'
+import { useState } from 'react'
 
 const ListIntervals = ({ addInterval, removeInterval }: any) => {
+    const [errorMsg, setErrorMsg] = useState<string>("");
+
+    const [timeRange, setTimeRange] = useState({
+        start: '08:00',
+        end: '10:00'
+    })
+
+    const updatedRange = (e: any) => {
+        const {name, value} = e.target
+        setTimeRange((prev: any) => ({
+            ...prev,
+            [name]: value,
+        }))
+
+        if(timeRange.end < timeRange.start) setErrorMsg("Invalid time intervals: End time > Start time.")
+        else setErrorMsg("")
+    }
+
+    console.log(timeRange)
+
     return (
         <>
             {intervals.map((currentValue: string, index: number) => (
@@ -21,6 +42,8 @@ const ListIntervals = ({ addInterval, removeInterval }: any) => {
                         <input
                             type="time"
                             defaultValue={'08:00'}
+                            name='start'
+                            onChange={(e: any) => updatedRange(e)}
                             className={`border-2 border-white text-black text-[24px] font-semibold rounded-lg py-[3px] px-4 m-1 focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399] focus:bg-transparent focus:text-white ${rajdhani.className}`}
                         />
 
@@ -29,6 +52,8 @@ const ListIntervals = ({ addInterval, removeInterval }: any) => {
                         <input
                             type="time"
                             defaultValue={'10:00'}
+                            name='end'
+                            onChange={(e: any) => updatedRange(e)}
                             className={`border-2 border-white text-black text-[24px] font-semibold rounded-lg py-[3px] px-4 m-1 focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399] focus:bg-transparent focus:text-white ${rajdhani.className}`}
                         />
 
@@ -62,6 +87,13 @@ const ListIntervals = ({ addInterval, removeInterval }: any) => {
                             )}
                         </div>
                     </div>
+
+                    {errorMsg != "" ?
+                    <p
+                    className='font-medium text-[#db696d]'
+                    >{errorMsg}</p> :
+                    <></>
+                    }
                 </div>
             ))}
         </>
