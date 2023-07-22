@@ -1,18 +1,12 @@
 import Image from 'next/image'
 import Form from './Form'
-import { Dekko } from 'next/font/google'
-
-const dekko = Dekko({
-    subsets: ['latin'],
-    weight: '400',
-})
 
 const GetForm = () => {
     const roomCode = 'ahd-kjha-hjah'
 
     return (
         <div
-            className={`w-screen h-screen flex flex-col justify-center items-center text-white ${dekko.className}`}
+            className='w-screen h-screen flex flex-col justify-center items-center text-white'
         >
             <div className="fixed top-0 left-0 flex justify-center items-center gap-4 m-4">
                 <Image

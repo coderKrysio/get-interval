@@ -1,15 +1,9 @@
-import { Dekko } from 'next/font/google'
 import Image from 'next/image'
-
-const dekko = Dekko({
-    subsets: ['latin'],
-    weight: '400',
-})
 
 const LandingPage = () => {
     return (
         <div
-            className={`w-screen h-screen flex flex-col justify-center items-center text-white ${dekko.className}`}
+            className='w-screen h-screen flex flex-col justify-center items-center text-white'
         >
             <h1 className="text-6xl text-[#48d399] font-semibold">
                 Get Intervals
