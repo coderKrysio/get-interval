@@ -6,10 +6,12 @@ import { useRouter } from 'next/navigation'
 
 export default function Page({ params }: { params: { id: string } }) {
     const router = useRouter()
-    if (ValidateURL(params.id)) {
+    const roomCode: string = params.id
+
+    if (ValidateURL(roomCode)) {
         return (
             <div className="flex min-h-screen flex-col items-center justify-center bg-[#000] overflow-x-hidden">
-                <Results />
+                <Results roomCode={roomCode} />
             </div>
         )
     } else {

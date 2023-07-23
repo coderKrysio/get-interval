@@ -1,10 +1,11 @@
-import Image from 'next/image'
 import Form from './Form'
 import Navbar from './Navbar'
 
-const GetForm = () => {
-    const roomCode = 'ahd-kjha-hjah'
+interface RoomCode {
+    roomCode: string
+}
 
+const GetForm = ({ roomCode }: RoomCode) => {
     return (
         <div className="w-screen min-h-screen flex flex-col justify-center items-center text-white py-[70px]">
             <Navbar />

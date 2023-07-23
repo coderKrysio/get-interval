@@ -1,7 +1,6 @@
-import Image from 'next/image'
 import Timeline from './Timeline'
 import MemberInfo from './MemberInfo'
-import { membersData } from '@/lib/utils'
+import { membersData,  } from '@/lib/utils'
 import Navbar from './Navbar'
 
 interface MemberData {
@@ -11,9 +10,11 @@ interface MemberData {
     intervals: number[][]
 }
 
-const Results = () => {
-    const roomCode = 'ahd-kjha-hjah'
+interface RoomCode {
+    roomCode: string
+}
 
+const Results = ({ roomCode }: RoomCode) => {
     return (
         <div className="w-screen min-h-screen flex flex-col justify-center items-center text-white bg-[#16161a] py-[70px]">
             <Navbar />

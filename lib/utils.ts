@@ -1,3 +1,7 @@
+import {v4 as uuidv4} from 'uuid';
+
+const roomCode = uuidv4();
+
 export const timeIntervals = [480, 600]
 
 export const intervals: number[][] = [timeIntervals]
@@ -77,4 +81,8 @@ export function ValidateURL(uuidUrl: string) {
     const regexExp: RegExp =
         /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi
     return regexExp.test(uuidUrl)
+}
+
+export function GetRoomCode() {
+    return roomCode
 }
