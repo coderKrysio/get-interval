@@ -79,10 +79,10 @@ export function NumToTime(num: number) {
 
 export function ValidateURL(uuidUrl: string) {
     const regexExp: RegExp =
-        /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi
+        /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}$/gi
     return regexExp.test(uuidUrl)
 }
 
 export function GetRoomCode() {
-    return roomCode
+    return roomCode.substring(0, 13)
 }
