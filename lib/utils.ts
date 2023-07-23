@@ -61,7 +61,7 @@ export const membersData = [
     },
 ]
 
-export default function NumToTime(num: number) { 
+export function NumToTime(num: number) { 
     var hours = Math.floor(num / 60).toString();  
     var minutes: string = (num % 60).toString();
     if(hours.length < 2) {
@@ -71,4 +71,10 @@ export default function NumToTime(num: number) {
         minutes = '0' + minutes; 
     }
     return hours + ":" + minutes;
+}
+
+
+export function ValidateURL(uuidUrl: string) {
+    const regexExp: RegExp = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi;
+    return regexExp.test(uuidUrl);
 }
