@@ -1,5 +1,5 @@
 import { rajdhani } from "@/lib/fonts"
-import NumToTime from "@/lib/utils"
+import { NumToTime } from "@/lib/utils"
 
 interface Info {
     name: string,
