@@ -1,18 +1,19 @@
+import { useRouter } from 'next/navigation'
 import Form from './Form'
 import Navbar from './Navbar'
-
 interface RoomCode {
     roomCode: string
 }
 
 const GetForm = ({ roomCode }: RoomCode) => {
+    const router = useRouter()
     return (
         <div className="w-screen min-h-screen flex flex-col justify-center items-center text-white py-[70px]">
             <Navbar />
 
             <div className="relative w-fit border-2 border-white ml-6 p-8 rounded-2xl flex justify-start items-start bg-[#16161a]">
                 <div>
-                    <p className="text-2xl mb-[20px]">Room Code: {roomCode}</p>
+                    <p className="text-2xl text-[#d4d4d4] mb-[20px]">Room Code: {roomCode}</p>
 
                     <Form />
                 </div>
@@ -29,8 +30,10 @@ const GetForm = ({ roomCode }: RoomCode) => {
                         Submit
                     </button>
 
-                    <button className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]">
-                        Results
+                    <button className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
+                    onClick={() => router.push(`/${roomCode}/result`)}
+                    >
+                        Result
                     </button>
                 </div>
             </div>
