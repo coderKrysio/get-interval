@@ -2,12 +2,8 @@ import Image from 'next/image'
 
 const LandingPage = () => {
     return (
-        <div
-            className='w-screen h-screen flex justify-center items-center text-white bg-[url(https://res.cloudinary.com/db7nrltsv/image/upload/v1690070858/Untitled_design_4_iyvlcc.png)] bg-center bg-cover bg-no-repeat'
-        >
-            <div
-            className='w-screen h-screen flex flex-col justify-center items-center bg-black/75 z-[2]'
-            >
+        <div className="w-screen h-screen flex justify-center items-center text-white bg-[url(https://res.cloudinary.com/db7nrltsv/image/upload/v1690070858/Untitled_design_4_iyvlcc.png)] bg-center bg-cover bg-no-repeat">
+            <div className="w-screen h-screen flex flex-col justify-center items-center bg-black/75 z-[2]">
                 <h1 className="text-6xl text-[#48d399] font-semibold">
                     Get Intervals
                 </h1>
