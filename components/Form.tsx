@@ -2,17 +2,26 @@ import { useEffect, useState } from 'react'
 import ListIntervals from './ListIntervals'
 import { intervals, timeIntervals } from '@/lib/utils'
 
-const Form = () => {
+const Form = ({ setFormData }: any) => {
     const [intLength, setIntLength] = useState<number>(intervals.length)
 
     const addInterval = () => {
         intervals.push(timeIntervals)
         setIntLength(intervals.length)
+        handleChange("intervals", intervals)
     }
 
     const removeInterval = () => {
         intervals.pop()
         setIntLength(intervals.length)
+        handleChange("intervals", intervals)
+    }
+
+    const handleChange = (name: string, value: any) => {
+        setFormData((prev: any) => ({
+            ...prev,
+            [name]: value
+        }))
     }
 
     const renderForm = () => {
@@ -26,17 +35,20 @@ const Form = () => {
                 <label htmlFor="my-name" className="text-left w-full">
                     Name
                 </label>
+
                 <input
                     name="name"
                     id="my-name"
                     type="text"
                     className="placeholder:text-slate-300 w-full p-2 mb-6 border-2 border-white bg-transparent rounded-lg focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399]"
                     placeholder="name"
+                    onChange={(e: any) => handleChange(e.target.name, e.target.value)}
                 />
 
                 <ListIntervals
                     addInterval={addInterval}
                     removeInterval={removeInterval}
+                    setFormData={setFormData}
                 />
             </form>
         )
