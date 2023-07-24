@@ -1,13 +1,12 @@
-import { useRouter } from 'next/navigation'
 import Form from './Form'
 import Navbar from './Navbar'
 import { svgSrc } from '@/lib/utils'
+import Link from 'next/link'
 interface RoomCode {
     roomCode: string
 }
 
 const GetForm = ({ roomCode }: RoomCode) => {
-    const router = useRouter()
     return (
         <div className="w-screen min-h-screen flex flex-col justify-center items-center text-white py-[70px]">
             <Navbar />
@@ -27,15 +26,17 @@ const GetForm = ({ roomCode }: RoomCode) => {
                 </div>
 
                 <div className="absolute bottom-0 right-0 m-8 flex gap-6">
-                    <button className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]">
+                    <Link className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
+                    href={`/${roomCode}/result`}
+                    >
                         Submit
-                    </button>
+                    </Link>
 
-                    <button className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
-                    onClick={() => router.push(`/${roomCode}/result`)}
+                    <Link className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
+                    href={`/${roomCode}/result`}
                     >
                         Result
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
