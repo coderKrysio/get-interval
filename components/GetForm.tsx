@@ -3,6 +3,7 @@ import Form from './Form'
 import Navbar from './Navbar'
 import { svgSrc, timeIntervals } from '@/lib/utils'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 interface RoomCode {
     roomCode: string
 }
@@ -14,11 +15,21 @@ interface FormData {
 }
 
 const GetForm = ({ roomCode }: RoomCode) => {
+    const router = useRouter()
+    const [showError, setShowError] = useState<boolean>(false);
     const [formData, setFormData] = useState<FormData>({
         name: '',
         roomCode: roomCode,
         intervals: [timeIntervals]
     })
+
+    const checkFields = () => {
+        if(formData.name == '') setShowError(true);
+        else {
+            setShowError(false)
+            router.push(`/${roomCode}/result`)
+        }
+    }
 
     console.log(formData)
 
@@ -41,17 +52,21 @@ const GetForm = ({ roomCode }: RoomCode) => {
                 </div>
 
                 <div className="absolute bottom-0 right-0 m-8 mb-[42px] flex gap-6">
-                    <Link className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
-                    href={`/${roomCode}/result`}
+                    <button className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
+                    onClick={() => checkFields()}
                     >
                         Submit
-                    </Link>
+                    </button>
 
                     <Link className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
                     href={`/${roomCode}/result`}
                     >
                         Result
                     </Link>
+
+                    {showError && <p
+                    className='text-xl text-[#db696d] font-semibold tracking-wide w-max absolute -bottom-[35px] left-1/2 -translate-x-1/2'
+                    >Name field is empty !</p>}
                 </div>
             </div>
         </div>
