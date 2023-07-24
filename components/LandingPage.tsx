@@ -13,7 +13,7 @@ const LandingPage = () => {
                     Get Intervals
                 </h1>
 
-                <p className="text-xl">
+                <p className="text-xl text-center">
                     Unite Your Free Time: Find Common Slots Together!
                 </p>
 
