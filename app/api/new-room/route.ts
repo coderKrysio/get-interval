@@ -1,5 +1,4 @@
 import Room from "@/models/room";
-import { connectToDB } from "@/utils/database";
 import clientPromise from "@/utils/newdb";
 
 export async function POST(request: Request) {
