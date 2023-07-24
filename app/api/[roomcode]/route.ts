@@ -51,16 +51,16 @@ export async function GET(request:Request,  context: RoomCodeRouteContext){
           }
         }
 
-      // console.log(finalintervals);
+      console.log(finalintervals);
 
       //to get the free intervals
       let result : any[];
       result = [[0, finalintervals[0][0]]];
       for(let i=1;i<finalintervals.length;i++){
-        result[i]=[finalintervals[i-1][1]+1,finalintervals[i][0]+1];
+        result[i]=[finalintervals[i-1][1]+1,finalintervals[i][0]-1];
       }
-      result[result.length]=[finalintervals[finalintervals.length-1][1]+1, 1440];
-      // console.log(result);
+      result[result.length]=[finalintervals[finalintervals.length-1][1]+1, 1439];
+      console.log(result);
 
       return new Response(JSON.stringify(result), {status:200});
     } catch (error) {
