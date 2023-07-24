@@ -1,6 +1,7 @@
 import { useRouter } from 'next/navigation'
 import Form from './Form'
 import Navbar from './Navbar'
+import { svgSrc } from '@/lib/utils'
 interface RoomCode {
     roomCode: string
 }
@@ -21,7 +22,7 @@ const GetForm = ({ roomCode }: RoomCode) => {
                 <div className="mt-[20px] ml-[20px]">
                     <iframe
                         className="border-none w-[450px] h-[275px] z-[-1]"
-                        src="https://lottie.host/?file=bb4ff104-0736-4bec-b1f9-ffd889aef6e1/QFgg5zIw0w.json"
+                        src={svgSrc}
                     ></iframe>
                 </div>
 

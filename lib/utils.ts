@@ -1,6 +1,6 @@
 import {v4 as uuidv4} from 'uuid';
 
-const roomCode = uuidv4();
+export const svgSrc: string = "https://lottie.host/?file=bb4ff104-0736-4bec-b1f9-ffd889aef6e1/QFgg5zIw0w.json";
 
 export const timeIntervals = [480, 600]
 
@@ -84,5 +84,5 @@ export function ValidateURL(uuidUrl: string) {
 }
 
 export function GetRoomCode() {
-    return roomCode.substring(0, 13)
+    return uuidv4().substring(0, 13)
 }
