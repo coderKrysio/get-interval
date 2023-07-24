@@ -1,6 +1,5 @@
 import mongoose, {Schema, model, models} from "mongoose";
 
-var SchemaTypes = mongoose.Schema.Types;
 const RoomSchema = new Schema({
     username:{
         type:String,
@@ -14,7 +13,7 @@ const RoomSchema = new Schema({
         {
             type:[
                 {
-                    type:SchemaTypes.Decimal128,
+                    type:Number,
                     required:true
                 }
             ],
