@@ -13,7 +13,9 @@ export async function GET(request:Request,  context: RoomCodeRouteContext){
       const db = client.db("get_interval");
 
       const rooms = await db.collection("rooms").find({roomcode:context.params.roomcode}).limit(15).toArray();
-      console.log(rooms);
+      if(rooms.length===0){
+        return new Response("Oops, No data!", {status:200});
+      }
         
       return new Response(JSON.stringify(rooms), {status:200});
     } catch(error){
