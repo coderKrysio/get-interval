@@ -11,15 +11,14 @@ export async function GET(request:Request,  context: RoomCodeRouteContext){
     try {
       const client = await clientPromise;
       const db = client.db("get_interval");
-      
+      let result : any[] = [];
+
       const results = await db.collection("result").find({roomcode:context.params.roomcode}).limit(1).toArray();
-      let result = results[0].result;
-      console.log(result);
-      
-      if(results.length===0){
+
+      if(results.length === 0){
         const rooms = await db.collection("rooms").find({roomcode:context.params.roomcode}).limit(15).toArray();
         
-        // console.log(rooms);
+        console.log(rooms);
         
         //to get all the intervals in a single array
         let intervals:any[] = [[]];
@@ -58,7 +57,6 @@ export async function GET(request:Request,  context: RoomCodeRouteContext){
         // console.log(finalintervals);
 
         //to get the free intervals
-        let result : any[];
         result = [[0, finalintervals[0][0]]];
         for(let i=1;i<finalintervals.length;i++){
           result[i]=[finalintervals[i-1][1]+1,finalintervals[i][0]-1];
@@ -69,6 +67,11 @@ export async function GET(request:Request,  context: RoomCodeRouteContext){
         await db.collection("result").insertOne({"roomcode":context.params.roomcode, "result":result});
         console.log("Saved Successfully!");
       }  
+      else{
+      result = await results[0].result;
+      console.log(result);
+      }
+
       return new Response(JSON.stringify(result), {status:200});
     } catch (error) {
         return new Response("Failed to fetch the data, Try again later!!", {status:500});
