@@ -19,7 +19,7 @@
   - response:
     ```js
     {
-    	"Success!!"
+    	"string"
     }
     ```
 
@@ -40,8 +40,8 @@
     ```json
     {
       result:[
-        [number, number],
-        [number, number],
+        [Number, Number],
+        [Number, Number],
         .
         .
         .
@@ -118,6 +118,6 @@
   - response:
     ```json
     {
-      "Deleted Successfully!!"
+      "string"
     }
     ```
