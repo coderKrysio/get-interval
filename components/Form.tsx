@@ -27,7 +27,7 @@ const Form = ({ setFormData }: any) => {
     const renderForm = () => {
         return (
             <form
-                className="w-[350px] min-h-[350px] text-xl flex flex-col justify-start items-center"
+                className="w-[350px] min-h-[350px] text-xl flex flex-col justify-start items-center max-[500px]:w-[300px]"
                 onSubmit={(e) => {
                     e.preventDefault()
                 }}

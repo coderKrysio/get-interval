@@ -49,7 +49,7 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
 
                     <div
                         id="interval"
-                        className="flex justify-center items-center gap-[10px]"
+                        className="relative flex justify-center items-center gap-[10px] max-[500px]:mb-[40px]"
                     >
                         <input
                             type="time"
@@ -69,7 +69,9 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
                             className={`border-2 border-white text-black text-[24px] font-semibold rounded-lg py-[3px] px-4 m-1 focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399] focus:bg-transparent focus:text-white ${rajdhani.className}`}
                         />
 
-                        <div>
+                        <div
+                        className='flex max-[500px]:absolute max-[500px]:-bottom-full'
+                        >
                             <button
                                 className="w-[35px] h-[35px] rounded-[25px] ml-[20px]"
                                 onClick={() => addInterval()}
@@ -101,7 +103,7 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
                     </div>
 
                     {errorMsg != '' ? (
-                        <p className="font-medium text-[#db696d]">{errorMsg}</p>
+                        <p className="text-center font-medium text-[#db696d] max-[500px]:mt-[20px]">{errorMsg}</p>
                     ) : (
                         <></>
                     )}
