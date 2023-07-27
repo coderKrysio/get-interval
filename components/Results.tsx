@@ -47,6 +47,11 @@ const Results = ({ roomCode }: RoomCode) => {
 
             <Timeline />
 
+            <button
+            className='min-[1470px]:hidden text-2xl tracking-wide font-medium py-2 px-5 border-2 border-white rounded-lg outline outline-2 outline-transparent hover:outline-white'
+            
+            >Show Timeline</button>
+
             <p className="text-3xl text-[#d4d4d4] font-medium pb-3 my-4">
                 Members Info
             </p>
