@@ -1,18 +1,10 @@
-import { useState } from 'react'
-import Form from './Form'
+import { SetStateAction, useState } from 'react'
 import Navbar from './Navbar'
 import { svgSrc, timeIntervals } from '@/lib/utils'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-interface RoomCode {
-    roomCode: string
-}
-
-interface FormData {
-    name: string
-    roomCode: string
-    intervals: number[][]
-}
+import { FormData, RoomCode } from '@/lib/types'
+import Form from './Form'
 
 const GetForm = ({ roomCode }: RoomCode) => {
     const router = useRouter()
@@ -43,7 +35,7 @@ const GetForm = ({ roomCode }: RoomCode) => {
                         Room Code: {roomCode}
                     </p>
 
-                    <Form setFormData={setFormData} />
+                    <Form {...{setFormData}} />                    
                 </div>
 
                 <div className="mt-[20px] ml-[20px] max-[985px]:hidden">

@@ -1,9 +1,5 @@
 import { rajdhani } from '@/lib/fonts'
-
-const timeline: number[] = []
-for (let x = 0; x < 24 * 60; x++) {
-    timeline[x] = x
-}
+import { timeline } from '@/lib/utils'
 
 const Timeline = () => {
     const blockLine = (result: boolean, time: number) => {

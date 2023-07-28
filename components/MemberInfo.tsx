@@ -1,10 +1,6 @@
 import { rajdhani } from '@/lib/fonts'
+import { Info } from '@/lib/types'
 import { NumToTime } from '@/lib/utils'
-
-interface Info {
-    name: string
-    intervals: number[][]
-}
 
 const MemberInfo = ({ name, intervals }: Info) => {
     return (

@@ -86,3 +86,8 @@ export function ValidateURL(uuidUrl: string) {
 export function GetRoomCode() {
     return uuidv4().substring(0, 13)
 }
+
+export const timeline: number[] = []
+for (let x = 0; x < 24 * 60; x++) {
+    timeline[x] = x
+}

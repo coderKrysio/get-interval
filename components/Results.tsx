@@ -3,17 +3,7 @@ import MemberInfo from './MemberInfo'
 import { membersData } from '@/lib/utils'
 import Navbar from './Navbar'
 import Link from 'next/link'
-
-interface MemberData {
-    id: number
-    roomCode: string
-    name: string
-    intervals: number[][]
-}
-
-interface RoomCode {
-    roomCode: string
-}
+import { MemberData, RoomCode } from '@/lib/types'
 
 const Results = ({ roomCode }: RoomCode) => {
     return (
