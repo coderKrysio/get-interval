@@ -1,9 +1,6 @@
 import { rajdhani } from '@/lib/fonts'
+import { TimeRange } from '@/lib/types'
 import { conditionMet, timeline } from '@/lib/utils'
-
-type TimeRange = {
-    timeRanges: number[][]
-}
 
 const Timeline = ({ timeRanges }: TimeRange) => {
     const blockLine = (result: boolean, time: number) => {

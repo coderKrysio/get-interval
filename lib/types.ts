@@ -1,8 +1,8 @@
-import { Dispatch, SetStateAction } from "react"
+import { Dispatch, SetStateAction } from 'react'
 
 export interface SetUser {
-    username: string, 
-    roomcode: string, 
+    username: string
+    roomcode: string
     timeRanges: number[][]
 }
 
@@ -36,4 +36,8 @@ export interface MemberData {
 
 export interface SetFormData {
     setFormData: Dispatch<SetStateAction<FormData>>
+}
+
+export type TimeRange = {
+    timeRanges: number[][]
 }

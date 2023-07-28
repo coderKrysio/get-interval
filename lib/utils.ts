@@ -93,9 +93,9 @@ for (let x = 0; x < 24 * 60; x++) {
 }
 
 export const conditionMet = (time: number, timeRanges: number[][]) => {
-        for(let x = 0; x < timeRanges.length; x++) {
-            let range = timeRanges[x]
-            if(time >= range[0] && time <= range[1]) return true;
-        }
-        return false
+    for (let x = 0; x < timeRanges.length; x++) {
+        let range = timeRanges[x]
+        if (time >= range[0] && time <= range[1]) return true
     }
+    return false
+}

@@ -77,12 +77,10 @@ export async function GET(_request: Request, context: RoomCodeRouteContext) {
             ]
             // console.log(result);
 
-            await db
-                .collection('result')
-                .insertOne({
-                    roomcode: context.params.roomcode,
-                    result: result,
-                })
+            await db.collection('result').insertOne({
+                roomcode: context.params.roomcode,
+                result: result,
+            })
             console.log('Saved Successfully!')
         } else {
             result = await results[0].result

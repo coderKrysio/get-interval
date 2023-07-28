@@ -7,13 +7,11 @@ export async function POST(request: Request) {
         const client = await clientPromise
         const db = client.db('get_interval')
 
-        await db
-            .collection('rooms')
-            .insertOne({
-                username: username,
-                roomcode: roomcode,
-                timeRanges: timeRanges,
-            })
+        await db.collection('rooms').insertOne({
+            username: username,
+            roomcode: roomcode,
+            timeRanges: timeRanges,
+        })
 
         return new Response(JSON.stringify(roomcode), { status: 200 })
     } catch (error) {

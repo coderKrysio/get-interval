@@ -20,7 +20,7 @@ const GetForm = ({ roomCode }: RoomCode) => {
         if (formData.name === '') setShowError(true)
         else {
             setShowError(false)
-            API.postData(formData);
+            API.postData(formData)
             router.push(`/${roomCode}/result`)
         }
     }
@@ -35,7 +35,7 @@ const GetForm = ({ roomCode }: RoomCode) => {
                         Room Code: {roomCode}
                     </p>
 
-                    <Form {...{setFormData}} />                    
+                    <Form {...{ setFormData }} />
                 </div>
 
                 <div className="mt-[20px] ml-[20px] max-[985px]:hidden">
