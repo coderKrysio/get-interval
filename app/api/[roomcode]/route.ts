@@ -1,12 +1,7 @@
+import { RoomCodeRouteContext } from '@/lib/types'
 import clientPromise from '@/utils/newdb'
 
-type RoomCodeRouteContext = {
-    params: {
-        roomcode: string
-    }
-}
-
-export async function GET(request: Request, context: RoomCodeRouteContext) {
+export async function GET(_request: Request, context: RoomCodeRouteContext) {
     try {
         const client = await clientPromise
         const db = client.db('get_interval')
@@ -25,7 +20,7 @@ export async function GET(request: Request, context: RoomCodeRouteContext) {
                 .limit(15)
                 .toArray()
 
-            console.log(rooms)
+            // console.log(rooms)
 
             //to get all the intervals in a single array
             let intervals: any[] = [[]]
@@ -91,7 +86,7 @@ export async function GET(request: Request, context: RoomCodeRouteContext) {
             console.log('Saved Successfully!')
         } else {
             result = await results[0].result
-            console.log(result)
+            // console.log(result)
         }
 
         return new Response(JSON.stringify(result), { status: 200 })

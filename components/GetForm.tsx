@@ -1,4 +1,4 @@
-import { SetStateAction, useState } from 'react'
+import { useState } from 'react'
 import Navbar from './Navbar'
 import { svgSrc, timeIntervals } from '@/lib/utils'
 import Link from 'next/link'
@@ -19,11 +19,9 @@ const GetForm = ({ roomCode }: RoomCode) => {
         if (formData.name === '') setShowError(true)
         else {
             setShowError(false)
-            router.push(`/${roomCode}/result`)
+            //router.push(`/${roomCode}/result`)
         }
     }
-
-    console.log(formData)
 
     return (
         <div className="w-screen min-h-screen flex flex-col justify-center items-center text-white pb-[70px] pt-[90px]">
