@@ -1,6 +1,6 @@
 import Timeline from './Timeline'
 import MemberInfo from './MemberInfo'
-import { membersData,  } from '@/lib/utils'
+import { membersData } from '@/lib/utils'
 import Navbar from './Navbar'
 import Link from 'next/link'
 
@@ -20,17 +20,17 @@ const Results = ({ roomCode }: RoomCode) => {
         <div className="w-screen min-h-screen flex flex-col justify-center items-center text-white bg-[#16161a] py-[70px]">
             <Navbar />
 
-            <div
-            className='w-full px-10 flex justify-between items-center my-[30px] max-[500px]:flex-col max-[500px]:gap-[30px]'
-            >
+            <div className="w-full px-10 flex justify-between items-center my-[30px] max-[500px]:flex-col max-[500px]:gap-[30px]">
                 <Link
-                className='text-2xl font-medium tracking-wide py-2 px-5 border-2 border-white rounded-lg outline outlint-2 outline-transparent hover:outline-white'
-                href={`/${roomCode}`}
-                >Back</Link>
+                    className="text-2xl font-medium tracking-wide py-2 px-5 border-2 border-white rounded-lg outline outlint-2 outline-transparent hover:outline-white"
+                    href={`/${roomCode}`}
+                >
+                    Back
+                </Link>
 
-                <p
-                className='text-2xl font-medium tracking-wide'
-                >Timer - [ 02:00:00 ]</p>
+                <p className="text-2xl font-medium tracking-wide">
+                    Timer - [ 02:00:00 ]
+                </p>
             </div>
 
             <h2 className="text-5xl text-center font-semibold tracking-wide m-2">
@@ -45,8 +45,8 @@ const Results = ({ roomCode }: RoomCode) => {
                 14:00 - 15:00 <br /> 18:00 - 23:00
             </p>
 
-            <div className='px-4 flex items-center justify-start w-full overflow-auto'>
-            <Timeline />
+            <div className="px-4 flex items-center justify-start w-full overflow-auto">
+                <Timeline />
             </div>
 
             <p className="text-3xl text-[#d4d4d4] font-medium pb-3 my-4">

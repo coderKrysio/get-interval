@@ -8,19 +8,19 @@ const Form = ({ setFormData }: any) => {
     const addInterval = () => {
         intervals.push(timeIntervals)
         setIntLength(intervals.length)
-        handleChange("intervals", intervals)
+        handleChange('intervals', intervals)
     }
 
     const removeInterval = () => {
         intervals.pop()
         setIntLength(intervals.length)
-        handleChange("intervals", intervals)
+        handleChange('intervals', intervals)
     }
 
     const handleChange = (name: string, value: any) => {
         setFormData((prev: any) => ({
             ...prev,
-            [name]: value
+            [name]: value,
         }))
     }
 
@@ -42,7 +42,9 @@ const Form = ({ setFormData }: any) => {
                     type="text"
                     className="placeholder:text-slate-300 w-full p-2 mb-6 border-2 border-white bg-transparent rounded-lg focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399]"
                     placeholder="name"
-                    onChange={(e: any) => handleChange(e.target.name, e.target.value)}
+                    onChange={(e: any) =>
+                        handleChange(e.target.name, e.target.value)
+                    }
                 />
 
                 <ListIntervals

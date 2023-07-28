@@ -1,6 +1,7 @@
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 
-export const svgSrc: string = "https://lottie.host/?file=bb4ff104-0736-4bec-b1f9-ffd889aef6e1/QFgg5zIw0w.json";
+export const svgSrc: string =
+    'https://lottie.host/?file=bb4ff104-0736-4bec-b1f9-ffd889aef6e1/QFgg5zIw0w.json'
 
 export const timeIntervals = [480, 600]
 
@@ -78,8 +79,7 @@ export function NumToTime(num: number) {
 }
 
 export function ValidateURL(uuidUrl: string) {
-    const regexExp: RegExp =
-        /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}$/gi
+    const regexExp: RegExp = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}$/gi
     return regexExp.test(uuidUrl)
 }
 

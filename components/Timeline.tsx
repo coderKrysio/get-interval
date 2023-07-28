@@ -7,28 +7,30 @@ for (let x = 0; x < 24 * 60; x++) {
 
 const Timeline = () => {
     const blockLine = (result: boolean, time: number) => {
-        if(result) return (
-            <div
-                className={`py-[20px] mx-[-7px] relative flex justify-start border-t-4 border-[#48d399]`}
-            >
-                <span
-                    className={`before:content-[''] before:w-[7px] before:h-[25px] before:absolute before:top-[-13px] before:left-0 before:border-4 before:border-[#48d399] font-semibold text-[#48d399] text-xl`}
+        if (result)
+            return (
+                <div
+                    className={`py-[20px] mx-[-7px] relative flex justify-start border-t-4 border-[#48d399]`}
                 >
-                    {time}
-                </span>
-            </div>
-        ) 
-        else return (
-            <div
-                className={`py-[20px] mx-[-7px] relative flex justify-start border-t-4 border-[#db696d]`}
-            >
-                <span
-                    className={`before:content-[''] before:w-[7px] before:h-[25px] before:absolute before:top-[-13px] before:left-0 before:border-4 before:border-[#db696d] font-semibold text-[#db696d] text-xl`}
+                    <span
+                        className={`before:content-[''] before:w-[7px] before:h-[25px] before:absolute before:top-[-13px] before:left-0 before:border-4 before:border-[#48d399] font-semibold text-[#48d399] text-xl`}
+                    >
+                        {time}
+                    </span>
+                </div>
+            )
+        else
+            return (
+                <div
+                    className={`py-[20px] mx-[-7px] relative flex justify-start border-t-4 border-[#db696d]`}
                 >
-                    {time}
-                </span>
-            </div>
-        ) 
+                    <span
+                        className={`before:content-[''] before:w-[7px] before:h-[25px] before:absolute before:top-[-13px] before:left-0 before:border-4 before:border-[#db696d] font-semibold text-[#db696d] text-xl`}
+                    >
+                        {time}
+                    </span>
+                </div>
+            )
     }
 
     const conditionMet = (time: number) => {

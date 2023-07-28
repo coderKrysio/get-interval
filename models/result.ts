@@ -1,22 +1,22 @@
-import mongoose, {Schema, model, models} from "mongoose";
+import mongoose, { Schema, model, models } from 'mongoose'
 
 const ResultSchema = new Schema({
-    roomcode:{
-        type:String,
-        required:true
+    roomcode: {
+        type: String,
+        required: true,
     },
-    result:[
+    result: [
         {
-            type:[
+            type: [
                 {
-                    type:Number,
-                    required:true
-                }
+                    type: Number,
+                    required: true,
+                },
             ],
-            required:true
-        }
-    ]
-});
+            required: true,
+        },
+    ],
+})
 
-const Result=models.Room || model('Result', ResultSchema);
-export default Result;
+const Result = models.Room || model('Result', ResultSchema)
+export default Result
