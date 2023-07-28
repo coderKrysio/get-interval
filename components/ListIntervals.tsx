@@ -38,7 +38,7 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
 
     return (
         <>
-            {intervals.map((currentValue: number[], index: number) => (
+            {intervals.map((_currentValue: number[], index: number) => (
                 <div
                     className="w-full flex flex-col justify-center items-center mb-4"
                     key={index}
@@ -70,10 +70,10 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
                         />
 
                         <div
-                        className='flex max-[500px]:absolute max-[500px]:-bottom-full'
+                        className='flex max-[500px]:absolute gap-[15px] max-[500px]:-bottom-full'
                         >
                             <button
-                                className="w-[35px] h-[35px] rounded-[25px] ml-[20px]"
+                                className="w-[35px] h-[35px] rounded-[25px]"
                                 onClick={() => addInterval()}
                             >
                                 <Image
@@ -84,9 +84,9 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
                                 />
                             </button>
 
-                            {intervals.length > 1 ? (
+                            {intervals.length > 1 && (
                                 <button
-                                    className="w-[35px] h-[35px] rounded-[25px] ml-[15px]"
+                                    className="w-[35px] h-[35px] rounded-[25px]"
                                     onClick={() => removeInterval()}
                                 >
                                     <Image
@@ -96,8 +96,6 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
                                         alt="remove"
                                     />
                                 </button>
-                            ) : (
-                                <button className="w-[35px] h-[35px] rounded-[25px] ml-[15px] z-[-1]"></button>
                             )}
                         </div>
                     </div>

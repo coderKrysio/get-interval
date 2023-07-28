@@ -36,7 +36,7 @@ const Timeline = () => {
     }
 
     return (
-        <div className="my-[50px] flex p-0 text-center max-[1470px]:scale-[0.253]">
+        <div className="mx-auto my-[40px] flex text-center px-2">
             {timeline.map((time: number, index: number) => (
                 <div
                     key={index}

@@ -21,7 +21,7 @@ const Results = ({ roomCode }: RoomCode) => {
             <Navbar />
 
             <div
-            className='w-full px-10 flex justify-between items-center my-[30px]'
+            className='w-full px-10 flex justify-between items-center my-[30px] max-[500px]:flex-col max-[500px]:gap-[30px]'
             >
                 <Link
                 className='text-2xl font-medium tracking-wide py-2 px-5 border-2 border-white rounded-lg outline outlint-2 outline-transparent hover:outline-white'
@@ -33,11 +33,11 @@ const Results = ({ roomCode }: RoomCode) => {
                 >Timer - [ 02:00:00 ]</p>
             </div>
 
-            <h2 className="text-5xl font-semibold tracking-wide">
+            <h2 className="text-5xl text-center font-semibold tracking-wide m-2">
                 Union Free Interval
             </h2>
 
-            <p className="text-2xl font-medium tracking-wide my-3 text-[#d4d4d4]">
+            <p className="text-2xl text-center font-medium tracking-wide mx-2 my-3 text-[#d4d4d4]">
                 Room Code: {roomCode}
             </p>
 
@@ -45,12 +45,9 @@ const Results = ({ roomCode }: RoomCode) => {
                 14:00 - 15:00 <br /> 18:00 - 23:00
             </p>
 
+            <div className='px-4 flex items-center justify-start w-full overflow-auto'>
             <Timeline />
-
-            <button
-            className='min-[1470px]:hidden text-2xl tracking-wide font-medium py-2 px-5 border-2 border-white rounded-lg outline outline-2 outline-transparent hover:outline-white'
-            
-            >Show Timeline</button>
+            </div>
 
             <p className="text-3xl text-[#d4d4d4] font-medium pb-3 my-4">
                 Members Info
