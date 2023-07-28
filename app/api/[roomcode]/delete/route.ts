@@ -1,12 +1,7 @@
+import { RoomCodeRouteContext } from '@/lib/types'
 import clientPromise from '@/utils/newdb'
 
-type RoomCodeRouteContext = {
-    params: {
-        roomcode: string
-    }
-}
-
-export async function DELETE(request: Request, context: RoomCodeRouteContext) {
+export async function DELETE(_request: Request, context: RoomCodeRouteContext) {
     try {
         const client = await clientPromise
         const db = client.db('get_interval')
@@ -25,7 +20,7 @@ export async function DELETE(request: Request, context: RoomCodeRouteContext) {
             roomcode: context.params.roomcode,
         })
 
-        return new Response('Deleted Successfully!!', { status: 200 })
+        return new Response(JSON.stringify(''), { status: 200 })
     } catch (error) {
         console.log(error)
         return new Response('Failed to delete, Try again later!!', {

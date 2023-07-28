@@ -1,12 +1,7 @@
+import { RoomCodeRouteContext } from '@/lib/types'
 import clientPromise from '@/utils/newdb'
 
-type RoomCodeRouteContext = {
-    params: {
-        roomcode: string
-    }
-}
-
-export async function GET(request: Request, context: RoomCodeRouteContext) {
+export async function GET(_request: Request, context: RoomCodeRouteContext) {
     try {
         const client = await clientPromise
         const db = client.db('get_interval')
@@ -17,7 +12,7 @@ export async function GET(request: Request, context: RoomCodeRouteContext) {
             .limit(15)
             .toArray()
         if (rooms.length === 0) {
-            return new Response('Oops, No data!', { status: 200 })
+            return new Response('Oops, No data!', { status: 400 })
         }
 
         return new Response(JSON.stringify(rooms), { status: 200 })
