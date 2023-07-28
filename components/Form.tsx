@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import ListIntervals from './ListIntervals'
 import { intervals, timeIntervals } from '@/lib/utils'
+import { SetFormData } from '@/lib/types'
 
-const Form = ({ setFormData }: any) => {
+const Form = ({ setFormData }: SetFormData) => {
     const [intLength, setIntLength] = useState<number>(intervals.length)
 
     const addInterval = () => {
