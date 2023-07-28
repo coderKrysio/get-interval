@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { FormData, RoomCode } from '@/lib/types'
 import Form from './Form'
+import { API } from '@/lib/api'
 
 const GetForm = ({ roomCode }: RoomCode) => {
     const router = useRouter()
@@ -19,7 +20,8 @@ const GetForm = ({ roomCode }: RoomCode) => {
         if (formData.name === '') setShowError(true)
         else {
             setShowError(false)
-            //router.push(`/${roomCode}/result`)
+            API.postData(formData);
+            router.push(`/${roomCode}/result`)
         }
     }
 

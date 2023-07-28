@@ -29,9 +29,9 @@ export interface Info {
 
 export interface MemberData {
     id: number
-    roomCode: string
-    name: string
-    intervals: number[][]
+    roomcode: string
+    username: string
+    timeRanges: number[][]
 }
 
 export interface SetFormData {
