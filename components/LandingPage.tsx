@@ -1,6 +1,6 @@
-import { GetRoomCode } from '@/lib/utils';
+import { GetRoomCode } from '@/lib/utils'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'
 
 const LandingPage = () => {
     const router = useRouter()
@@ -17,8 +17,9 @@ const LandingPage = () => {
                     Unite Your Free Time: Find Common Slots Together!
                 </p>
 
-                <button className="text-[#48d399] text-2xl font-medium px-7 py-2 m-6 flex items-center gap-3 rounded-lg border-[3px] border-[#48d399] outline outline-2 outline-transparent hover:outline-[#48d399]"
-                onClick={() => router.push(roomCode)}
+                <button
+                    className="text-[#48d399] text-2xl font-medium px-7 py-2 m-6 flex items-center gap-3 rounded-lg border-[3px] border-[#48d399] outline outline-2 outline-transparent hover:outline-[#48d399]"
+                    onClick={() => router.push(roomCode)}
                 >
                     Generate form link
                     <Image

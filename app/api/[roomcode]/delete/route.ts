@@ -1,27 +1,35 @@
-import clientPromise from "@/utils/newdb";
+import clientPromise from '@/utils/newdb'
 
 type RoomCodeRouteContext = {
-    params:{
-        roomcode:string
+    params: {
+        roomcode: string
     }
 }
 
-export async function DELETE(request:Request, context:RoomCodeRouteContext){
-   try {
-    const client = await clientPromise;
-    const db = client.db("get_interval");
-      
-    const rooms = await db.collection("rooms").find({roomcode:context.params.roomcode}).limit(10).toArray();
+export async function DELETE(request: Request, context: RoomCodeRouteContext) {
+    try {
+        const client = await clientPromise
+        const db = client.db('get_interval')
 
-    for(let i=0;i<rooms.length;i++){
-        db.collection("rooms").findOneAndDelete({_id:rooms[i]._id});
+        const rooms = await db
+            .collection('rooms')
+            .find({ roomcode: context.params.roomcode })
+            .limit(10)
+            .toArray()
+
+        for (let i = 0; i < rooms.length; i++) {
+            db.collection('rooms').findOneAndDelete({ _id: rooms[i]._id })
+        }
+
+        db.collection('result').findOneAndDelete({
+            roomcode: context.params.roomcode,
+        })
+
+        return new Response('Deleted Successfully!!', { status: 200 })
+    } catch (error) {
+        console.log(error)
+        return new Response('Failed to delete, Try again later!!', {
+            status: 500,
+        })
     }
-
-    db.collection("result").findOneAndDelete({roomcode:context.params.roomcode});
-    
-    return new Response ("Deleted Successfully!!", {status:200});
-   } catch (error) {
-    console.log(error);
-    return new Response("Failed to delete, Try again later!!", {status:500});    
-   }
 }
