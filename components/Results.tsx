@@ -1,11 +1,26 @@
 import Timeline from './Timeline'
 import MemberInfo from './MemberInfo'
-import { membersData } from '@/lib/utils'
+import { NumToTime } from '@/lib/utils'
 import Navbar from './Navbar'
 import Link from 'next/link'
 import { MemberData, RoomCode } from '@/lib/types'
+import { useEffect, useState } from 'react'
+import { API } from '@/lib/api'
 
 const Results = ({ roomCode }: RoomCode) => {
+    const [result, setResult] = useState<number[][]>([])
+    const [membersData, setMembersData] = useState<MemberData[]>([])
+
+    useEffect(() => {
+        API.getInterval(roomCode).then((res: any) => {
+            setResult(res)
+        })
+        API.getUsers(roomCode).then((res: any) => {
+            setMembersData(res)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
     return (
         <div className="w-screen min-h-screen flex flex-col justify-center items-center text-white bg-[#16161a] py-[70px]">
             <Navbar />
@@ -31,12 +46,14 @@ const Results = ({ roomCode }: RoomCode) => {
                 Room Code: {roomCode}
             </p>
 
-            <p className="text-3xl text-[#48d399] my-2">
-                14:00 - 15:00 <br /> 18:00 - 23:00
-            </p>
+            {result.map((interval: number[], index: number) => (
+                <p className="text-3xl text-[#48d399] my-1">
+                    {NumToTime(interval[0])} - {NumToTime(interval[1])}
+                </p>
+            ))}
 
             <div className="px-4 flex items-center justify-start w-full overflow-auto">
-                <Timeline />
+                <Timeline timeRanges={result} />
             </div>
 
             <p className="text-3xl text-[#d4d4d4] font-medium pb-3 my-4">
@@ -46,8 +63,8 @@ const Results = ({ roomCode }: RoomCode) => {
             <div className="max-w[1200px] grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-start gap-[70px]">
                 {membersData.map((values: MemberData, id: number) => (
                     <MemberInfo
-                        name={values.name}
-                        intervals={values.intervals}
+                        name={values.username}
+                        intervals={values.timeRanges}
                         key={id}
                     />
                 ))}
