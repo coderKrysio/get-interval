@@ -1,4 +1,4 @@
-import { FormData } from "./types"
+import { FormData } from './types'
 
 export const API = {
     postData: async (formData: FormData) => {
@@ -8,8 +8,8 @@ export const API = {
                 body: JSON.stringify({
                     username: formData.name,
                     roomcode: formData.roomCode,
-                    timeRanges: formData.intervals
-                })
+                    timeRanges: formData.intervals,
+                }),
             })
 
             return res.json()
@@ -20,8 +20,8 @@ export const API = {
 
     getInterval: async (roomCode: string) => {
         try {
-            const res =  await fetch(`/api/${roomCode}`, {
-                method: 'GET'
+            const res = await fetch(`/api/${roomCode}`, {
+                method: 'GET',
             })
 
             return res.json()
@@ -33,7 +33,7 @@ export const API = {
     getUsers: async (roomCode: string) => {
         try {
             const res = await fetch(`/api/${roomCode}/review`, {
-                method: 'GET'
+                method: 'GET',
             })
 
             return res.json()
@@ -45,7 +45,7 @@ export const API = {
     deleteRoom: async (roomCode: string) => {
         try {
             const res = await fetch(`/api/${roomCode}/delete`, {
-                method: 'DELETE'
+                method: 'DELETE',
             })
 
             return res.json()

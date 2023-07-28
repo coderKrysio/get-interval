@@ -47,12 +47,12 @@ const Results = ({ roomCode }: RoomCode) => {
             </p>
 
             {result.map((interval: number[], index: number) => (
-                <p className="text-3xl text-[#48d399] my-1">
+                <p className="text-3xl text-[#48d399] my-1" key={index}>
                     {NumToTime(interval[0])} - {NumToTime(interval[1])}
                 </p>
             ))}
 
-            <div className="px-4 flex items-center justify-start w-full overflow-auto">
+            <div className="timeline px-4 flex items-center justify-start w-full overflow-auto">
                 <Timeline timeRanges={result} />
             </div>
 
