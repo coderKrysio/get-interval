@@ -1,11 +1,12 @@
 import { SetUser } from '@/lib/types'
 import clientPromise from '@/utils/newdb'
+import { Db, MongoClient } from 'mongodb'
 
 export async function POST(request: Request) {
     const { username, roomcode, timeRanges }: SetUser = await request.json()
     try {
-        const client = await clientPromise
-        const db = client.db('get_interval')
+        const client: MongoClient = await clientPromise
+        const db: Db = client.db('get_interval')
 
         await db.collection('rooms').insertOne({
             username: username,
