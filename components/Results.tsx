@@ -4,12 +4,18 @@ import { NumToTime } from '@/lib/utils'
 import Navbar from './Navbar'
 import Link from 'next/link'
 import { MemberData, RoomCode } from '@/lib/types'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { API } from '@/lib/api'
+import { useRouter } from 'next/navigation'
 
 const Results = ({ roomCode }: RoomCode) => {
+    const router = useRouter()
     const [result, setResult] = useState<number[][]>([])
     const [membersData, setMembersData] = useState<MemberData[]>([])
+    const [time, setTime] = useState<number>(7200000);
+
+    const intervalRef = useRef<ReturnType<typeof setInterval>>();
+    const decreaseNum = () => setTime((prev) => prev - 1);
 
     useEffect(() => {
         API.getInterval(roomCode).then((res: any) => {
@@ -18,24 +24,29 @@ const Results = ({ roomCode }: RoomCode) => {
         API.getUsers(roomCode).then((res: any) => {
             setMembersData(res)
         })
+
+        intervalRef.current = setInterval(decreaseNum, 1000);
+        return () => clearInterval(intervalRef.current);
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    if(time === 0) {
+        API.deleteRoom(roomCode)
+        router.push('/')
+    }
 
     return (
         <div className="w-screen min-h-screen flex flex-col justify-center items-center text-white bg-[#16161a] py-[70px]">
             <Navbar />
 
-            <div className="w-full px-10 flex justify-between items-center my-[30px] max-[500px]:flex-col max-[500px]:gap-[30px]">
+            <div className="w-full px-10 flex justify-start items-center my-[30px]">
                 <Link
                     className="text-2xl font-medium tracking-wide py-2 px-5 border-2 border-white rounded-lg outline outlint-2 outline-transparent hover:outline-white"
                     href={`/${roomCode}`}
                 >
                     Back
                 </Link>
-
-                <p className="text-2xl font-medium tracking-wide">
-                    Timer - [ 02:00:00 ]
-                </p>
             </div>
 
             <h2 className="text-5xl text-center font-semibold tracking-wide m-2">

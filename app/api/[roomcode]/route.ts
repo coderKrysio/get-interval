@@ -52,7 +52,7 @@ export async function GET(request:Request,  context: RoomCodeRouteContext){
         //to get the free intervals
         let j=0;
         if(finalintervals[0][0]!==0){
-          result[0] = [[0, finalintervals[0][0]-1]];
+          result[0] = [0, finalintervals[0][0]-1];
           ++j;
         }  
         for(let i=1;i<finalintervals.length;i++){
