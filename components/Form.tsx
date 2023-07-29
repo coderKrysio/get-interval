@@ -1,29 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import ListIntervals from './ListIntervals'
-import { intervals, timeIntervals } from '@/lib/utils'
 import { SetFormData } from '@/lib/types'
+import { WriteForm } from '@/lib/hooks'
 
 const Form = ({ setFormData }: SetFormData) => {
-    const [intLength, setIntLength] = useState<number>(intervals.length)
-
-    const addInterval = () => {
-        intervals.push(timeIntervals)
-        setIntLength(intervals.length)
-        handleChange('intervals', intervals)
-    }
-
-    const removeInterval = () => {
-        intervals.pop()
-        setIntLength(intervals.length)
-        handleChange('intervals', intervals)
-    }
-
-    const handleChange = (name: string, value: any) => {
-        setFormData((prev: any) => ({
-            ...prev,
-            [name]: value,
-        }))
-    }
+    const { intLength, addInterval, removeInterval, handleChange } = WriteForm({setFormData})
 
     const renderForm = () => {
         return (

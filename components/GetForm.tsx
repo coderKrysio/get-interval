@@ -1,29 +1,12 @@
-import { useState } from 'react'
 import Navbar from './Navbar'
-import { svgSrc, timeIntervals } from '@/lib/utils'
+import { svgSrc } from '@/lib/utils'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { FormData, RoomCode } from '@/lib/types'
+import { RoomCode } from '@/lib/types'
 import Form from './Form'
-import { API } from '@/lib/api'
+import { SetForm } from '@/lib/hooks'
 
 const GetForm = ({ roomCode }: RoomCode) => {
-    const router = useRouter()
-    const [showError, setShowError] = useState<boolean>(false)
-    const [formData, setFormData] = useState<FormData>({
-        name: '',
-        roomCode: roomCode,
-        intervals: [timeIntervals],
-    })
-
-    const checkFields = () => {
-        if (formData.name === '') setShowError(true)
-        else {
-            setShowError(false)
-            API.postData(formData)
-            router.push(`/${roomCode}/result`)
-        }
-    }
+    const { showError, setFormData, checkFields } = SetForm(roomCode)
 
     return (
         <div className="w-screen min-h-screen flex flex-col justify-center items-center text-white pb-[70px] pt-[90px]">

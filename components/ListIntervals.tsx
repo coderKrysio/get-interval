@@ -1,41 +1,10 @@
 import { rajdhani } from '@/lib/fonts'
+import { SetIntervals } from '@/lib/hooks'
 import { intervals } from '@/lib/utils'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
 
 const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
-    const [errorMsg, setErrorMsg] = useState<string>('')
-    const [arrIndex, setArrIndex] = useState<number>(0)
-
-    const [timeRange, setTimeRange] = useState({
-        start: 480,
-        end: 600,
-    })
-
-    const updatedRange = (e: any, index: number) => {
-        const { name, value } = e.target
-        var array = value.split(':')
-        var minutes = parseInt(array[0], 10) * 60 + parseInt(array[1], 10)
-        setArrIndex(index)
-        setTimeRange((prev: any) => ({
-            ...prev,
-            [name]: minutes,
-        }))
-    }
-
-    useEffect(() => {
-        if (timeRange.end <= timeRange.start)
-            setErrorMsg('Invalid time intervals: End time > Start time.')
-        else {
-            setErrorMsg('')
-            intervals[arrIndex] = [timeRange.start, timeRange.end]
-            setFormData((prev: any) => ({
-                ...prev,
-                intervals: intervals,
-            }))
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [timeRange])
+    const { errorMsg, updatedRange } = SetIntervals({setFormData})
 
     return (
         <>
