@@ -46,6 +46,8 @@ Our aim is to simplify the process of finding common free time slots among a gro
 
 Get started with our Next.js, Tailwind, and MongoDB-powered web application today and revolutionize the way you schedule group activities! Say goodbye to scheduling conflicts and hello to efficient planning.
 
+---
+
 # Initial Thought Process
 
 ![get time interval](https://github.com/coderKrysio/get-interval/assets/119613110/94004a5d-e31d-41c2-8025-50ab49d335e5)
@@ -168,8 +170,6 @@ Get started with our Next.js, Tailwind, and MongoDB-powered web application toda
         ```
 
 ## Collaborators
-
----
 
 <a href = "https://github.com/coderKrysio/get-interval/contributors">
   <img src = "https://contrib.rocks/image?repo=coderKrysio/get-interval"/>
