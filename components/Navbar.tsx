@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Navbar = () => {
     return (
@@ -12,9 +13,11 @@ const Navbar = () => {
                 alt="session-timeout"
             />
 
-            <h3 className="text-3xl font-semibold text-[#48d399]">
+            <Link 
+            href={'/'}
+            className="text-3xl font-semibold text-[#48d399]">
                 Get Intervals
-            </h3>
+            </Link>
         </div>
     )
 }
