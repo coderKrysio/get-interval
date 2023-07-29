@@ -16,10 +16,6 @@ export async function DELETE(_request: Request, context: RoomCodeRouteContext) {
             db.collection('rooms').findOneAndDelete({ _id: rooms[i]._id })
         }
 
-        db.collection('result').findOneAndDelete({
-            roomcode: context.params.roomcode,
-        })
-
         return new Response(JSON.stringify(''), { status: 200 })
     } catch (error) {
         console.log(error)
