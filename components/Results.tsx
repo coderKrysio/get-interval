@@ -38,11 +38,15 @@ const Results = ({ roomCode }: RoomCode) => {
                 Room Code: {roomCode}
             </p>
 
-            {result.map((interval: number[], index: number) => (
-                <p className="text-3xl text-[#48d399] my-1" key={index}>
-                    {NumToTime(interval[0])} - {NumToTime(interval[1])}
-                </p>
-            ))}
+            {result.length == 0 ? (
+                <p className="text-3xl text-[#db696d]">No data found</p>
+            ) : (
+                result.map((interval: number[], index: number) => (
+                    <p className="text-3xl text-[#48d399] my-1" key={index}>
+                        {NumToTime(interval[0])} - {NumToTime(interval[1])}
+                    </p>
+                ))
+            )}
 
             <div className="timeline px-4 flex items-center justify-start w-full overflow-auto">
                 <Timeline timeRanges={result} />
@@ -53,13 +57,17 @@ const Results = ({ roomCode }: RoomCode) => {
             </p>
 
             <div className="max-w[1200px] grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-start gap-[70px]">
-                {membersData.map((values: MemberData, id: number) => (
-                    <MemberInfo
-                        name={values.username}
-                        intervals={values.timeRanges}
-                        key={id}
-                    />
-                ))}
+                {membersData.length == 0 ? (
+                    <p className="text-2xl text-[#db696d]">No Data Found</p>
+                ) : (
+                    membersData.map((values: MemberData, id: number) => (
+                        <MemberInfo
+                            name={values.username}
+                            intervals={values.timeRanges}
+                            key={id}
+                        />
+                    ))
+                )}
             </div>
         </div>
     )
