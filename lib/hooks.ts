@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from 'react'
 import { API } from './api'
 import { FormData, MemberData, SetFormData } from './types'
 import { intervals, timeIntervals } from './utils'
-import { useRouter } from 'next/navigation'
 
 export const GetResult = (roomCode: string) => {
     const [result, setResult] = useState<number[][]>([])
