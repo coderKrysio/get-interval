@@ -12,7 +12,7 @@ const Results = ({ roomCode }: RoomCode) => {
     const router = useRouter()
     const { result, membersData, time } = GetResult(roomCode)
 
-    if(time === 0) {
+    if (time === 0) {
         API.deleteRoom(roomCode)
         router.push('/')
     }

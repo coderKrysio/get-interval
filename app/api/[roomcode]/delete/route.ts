@@ -4,7 +4,7 @@ import clientPromise from '@/utils/newdb'
 export async function DELETE(_request: Request, context: RoomCodeRouteContext) {
     try {
         const client = await clientPromise
-        const db = client.db('get_interval');
+        const db = client.db('get_interval')
 
         db.collection('rooms').deleteMany({ roomcode: context.params.roomcode })
 

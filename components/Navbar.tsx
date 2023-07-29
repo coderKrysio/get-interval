@@ -13,9 +13,7 @@ const Navbar = () => {
                 alt="session-timeout"
             />
 
-            <Link 
-            href={'/'}
-            className="text-3xl font-semibold text-[#48d399]">
+            <Link href={'/'} className="text-3xl font-semibold text-[#48d399]">
                 Get Intervals
             </Link>
         </div>
