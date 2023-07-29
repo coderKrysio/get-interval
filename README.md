@@ -48,7 +48,8 @@ Get started with our Next.js, Tailwind, and MongoDB-powered web application toda
 
 # Initial Thought Process
 
-![get time interval](https://github.com/coderKrysio/get-interval/assets/119613110/be38679a-9cfd-465f-a0ff-ad8bf58ee946)
+![get time interval](https://github.com/coderKrysio/get-interval/assets/119613110/94004a5d-e31d-41c2-8025-50ab49d335e5)
+
 
 ## Documentation
 
@@ -63,7 +64,7 @@ Get started with our Next.js, Tailwind, and MongoDB-powered web application toda
     -   response:
         ```js
         {
-            ;('string')
+            "<roomcode>"
         }
         ```
 
@@ -165,3 +166,11 @@ Get started with our Next.js, Tailwind, and MongoDB-powered web application toda
           "string"
         }
         ```
+
+## Collaborators
+
+---
+
+<a href = "https://github.com/coderKrysio/get-interval/contributors">
+  <img src = "https://contrib.rocks/image?repo=coderKrysio/get-interval"/>
+</a>
