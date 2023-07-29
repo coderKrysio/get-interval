@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect, SetStateAction, Dispatch } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { API } from './api'
-import { FormData, MemberData, RoomCode, SetFormData } from './types'
+import { FormData, MemberData, SetFormData } from './types'
 import { intervals, timeIntervals } from './utils'
 import { useRouter } from 'next/navigation'
 
@@ -55,7 +55,6 @@ export const WriteForm = ({ setFormData }: SetFormData) => {
 }
 
 export const SetForm = (roomCode: string) => {
-    const router = useRouter()
     const [showError, setShowError] = useState<boolean>(false)
     const [formData, setFormData] = useState<FormData>({
         name: '',
@@ -63,16 +62,7 @@ export const SetForm = (roomCode: string) => {
         intervals: [timeIntervals],
     })
 
-    const checkFields = () => {
-        if (formData.name === '') setShowError(true)
-        else {
-            setShowError(false)
-            API.postData(formData)
-            router.push(`/${roomCode}/result`)
-        }
-    }
-
-    return { showError, setFormData, checkFields }
+    return { showError, setFormData, formData, setShowError }
 }
 
 export const SetIntervals = ({ setFormData }: SetFormData) => {

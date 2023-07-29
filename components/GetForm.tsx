@@ -4,9 +4,21 @@ import Link from 'next/link'
 import { RoomCode } from '@/lib/types'
 import Form from './Form'
 import { SetForm } from '@/lib/hooks'
+import { API } from '@/lib/api'
+import { useRouter } from 'next/navigation'
 
 const GetForm = ({ roomCode }: RoomCode) => {
-    const { showError, setFormData, checkFields } = SetForm(roomCode)
+    const router = useRouter()
+    const { showError, setFormData, formData, setShowError } = SetForm(roomCode)
+
+    const checkFields = () => {
+        if (formData.name === '') setShowError(true)
+        else {
+            setShowError(false)
+            API.postData(formData)
+            router.push(`/${roomCode}/result`)
+        }
+    }
 
     return (
         <div className="w-screen min-h-screen flex flex-col justify-center items-center text-white pb-[70px] pt-[90px]">
