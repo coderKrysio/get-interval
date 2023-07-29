@@ -1,16 +1,16 @@
-import { useState, useRef, useEffect, SetStateAction, Dispatch } from "react";
-import { API } from "./api";
-import { FormData, MemberData, RoomCode, SetFormData } from "./types";
-import { intervals, timeIntervals } from "./utils";
-import { useRouter } from "next/navigation";
+import { useState, useRef, useEffect, SetStateAction, Dispatch } from 'react'
+import { API } from './api'
+import { FormData, MemberData, RoomCode, SetFormData } from './types'
+import { intervals, timeIntervals } from './utils'
+import { useRouter } from 'next/navigation'
 
 export const GetResult = (roomCode: string) => {
     const [result, setResult] = useState<number[][]>([])
     const [membersData, setMembersData] = useState<MemberData[]>([])
-    const [time, setTime] = useState<number>(7200000);
+    const [time, setTime] = useState<number>(7200000)
 
-    const intervalRef = useRef<ReturnType<typeof setInterval>>();
-    const decreaseNum = () => setTime((prev) => prev - 1);
+    const intervalRef = useRef<ReturnType<typeof setInterval>>()
+    const decreaseNum = () => setTime((prev) => prev - 1)
 
     useEffect(() => {
         API.getInterval(roomCode).then((res: any) => {
@@ -20,8 +20,8 @@ export const GetResult = (roomCode: string) => {
             setMembersData(res)
         })
 
-        intervalRef.current = setInterval(decreaseNum, 1000);
-        return () => clearInterval(intervalRef.current);
+        intervalRef.current = setInterval(decreaseNum, 1000)
+        return () => clearInterval(intervalRef.current)
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -75,7 +75,7 @@ export const SetForm = (roomCode: string) => {
     return { showError, setFormData, checkFields }
 }
 
-export const SetIntervals = ({setFormData}: SetFormData) => {
+export const SetIntervals = ({ setFormData }: SetFormData) => {
     const [errorMsg, setErrorMsg] = useState<string>('')
     const [arrIndex, setArrIndex] = useState<number>(0)
 

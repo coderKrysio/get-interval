@@ -4,7 +4,9 @@ import { SetFormData } from '@/lib/types'
 import { WriteForm } from '@/lib/hooks'
 
 const Form = ({ setFormData }: SetFormData) => {
-    const { intLength, addInterval, removeInterval, handleChange } = WriteForm({setFormData})
+    const { intLength, addInterval, removeInterval, handleChange } = WriteForm({
+        setFormData,
+    })
 
     const renderForm = () => {
         return (
