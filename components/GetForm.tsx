@@ -40,7 +40,7 @@ const GetForm = ({ roomCode }: RoomCode) => {
                     ></iframe>
                 </div>
 
-                <div className="absolute bottom-0 right-0 m-8 mb-[42px] flex gap-6 max-[985px]:relative max-[985px]:my-0 max-[985px]:mx-auto">
+                <div className="absolute bottom-0 right-0 m-8 mb-[42px] flex gap-6 max-[985px]:relative max-[985px]:my-0 max-[985px]:mx-auto max-[500px]:mt-[20px]">
                     <button
                         className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
                         onClick={() => checkFields()}

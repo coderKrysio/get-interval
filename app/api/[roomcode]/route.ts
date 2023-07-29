@@ -5,7 +5,7 @@ export async function GET(_request: Request, context: RoomCodeRouteContext) {
     try {
         const client = await clientPromise
         const db = client.db('get_interval')
-        let result: any[] = []
+        let result: number[][] = []
 
         const rooms = await db
             .collection('rooms')
@@ -13,8 +13,12 @@ export async function GET(_request: Request, context: RoomCodeRouteContext) {
             .limit(15)
             .toArray()
 
+        if (rooms.length === 0) {
+            return new Response(JSON.stringify(result), { status: 400 })
+        }
+
         //to get all the intervals in a single array
-        let intervals: any[] = [[]]
+        let intervals: number[][] = []
         let counter = 0
         for (let i = 0; i < rooms.length; i++) {
             var room = rooms[i].timeRanges
@@ -36,7 +40,7 @@ export async function GET(_request: Request, context: RoomCodeRouteContext) {
         }
 
         //to merge the intervals
-        let finalintervals: any[]
+        let finalintervals: number[][] = []
         finalintervals = [[intervals[0][0], intervals[0][1]]]
         for (let i = 0; i < intervals.length; i++) {
             if (

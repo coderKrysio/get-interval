@@ -26,7 +26,7 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
                             defaultValue={'08:00'}
                             name="start"
                             onChange={(e: any) => updatedRange(e, index)}
-                            className={`border-2 border-white text-black text-[24px] font-semibold rounded-lg py-[3px] px-4 m-1 focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399] focus:bg-transparent focus:text-white ${rajdhani.className}`}
+                            className={`border-2 border-white text-black text-[24px] font-semibold rounded-lg py-[3px] px-4 m-1 focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399] focus:bg-transparent focus:text-white max-[500px]:w-fit ${rajdhani.className}`}
                         />
 
                         <span className="font-semibold text-2xl">-</span>
@@ -36,7 +36,7 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
                             defaultValue={'10:00'}
                             name="end"
                             onChange={(e: any) => updatedRange(e, index)}
-                            className={`border-2 border-white text-black text-[24px] font-semibold rounded-lg py-[3px] px-4 m-1 focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399] focus:bg-transparent focus:text-white ${rajdhani.className}`}
+                            className={`border-2 border-white text-black text-[24px] font-semibold rounded-lg py-[3px] px-4 m-1 focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399] focus:bg-transparent focus:text-white max-[500px]:w-fit ${rajdhani.className}`}
                         />
 
                         <div className="flex max-[500px]:absolute gap-[15px] max-[500px]:-bottom-full">
