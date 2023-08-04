@@ -1,4 +1,3 @@
-import {Navbar} from './Navbar'
 import Link from 'next/link'
 import { RoomCode } from '@/lib/types'
 import { Form } from './Form'
@@ -6,6 +5,7 @@ import { useToSetFormData } from '@/lib/hooks'
 import { API } from '@/lib/api'
 import { useRouter } from 'next/navigation'
 import { SVG_SRC } from '@/lib/utils'
+import { Navbar } from '../Navbar'
 
 export const GetForm = ({ roomCode }: RoomCode) => {
     const router = useRouter()

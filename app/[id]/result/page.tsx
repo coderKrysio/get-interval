@@ -1,6 +1,6 @@
 'use client'
 
-import {Results} from '@/components/Results'
+import {Results} from '@/components/result/Results'
 import { ToValidateURL } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 
