@@ -1,5 +1,5 @@
 import {Timeline} from './Timeline'
-import {MemberInfo} from '../MemberInfo'
+import {MemberInfo} from './MemberInfo'
 import { ConvertNumToTime } from '@/lib/utils'
 import {Navbar} from '../Navbar'
 import Link from 'next/link'

@@ -1,11 +1,42 @@
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react"
+
 export const Navbar = () => {
+    const [openOptions, setOpenOptions] = useState<boolean>(false);
     return (
-        <div className="fixed top-0 left-0 w-full bg-[#16161a] flex justify-between items-center gap-4 p-4 z-[10]">
-            <p className="text-2xl font-medium tracking-wide">Hey, coderKrysio</p>
+        <div className="fixed top-0 left-0 w-full h-[60px] bg-[#16161a] flex justify-between items-center gap-4 p-4 z-[10]">
+            <div className="flex justify-start items-center gap-4">
+                <Image
+                    width={30}
+                    height={30}
+                    src={
+                        'https://img.icons8.com/ios-filled/100/48D399/session-timeout.png'
+                    }
+                    alt="session-timeout"
+                />
+
+                <Link href={'/'} className="text-3xl font-semibold text-[#48d399]">
+                    Get Intervals
+                </Link>
+            </div>
 
             <button
-            className="text-xl font-normal tracking-wide px-6 py-1 rounded-lg border-2 border-white outline outline-2 outline-transparent hover:font-medium hover:outline-black"
-            >Log Out</button>
+            className=""
+            onClick={() => setOpenOptions((prev: boolean) => !prev)}
+            >options</button>
+
+            {openOptions && <div
+            className="absolute top-[65px] right-0 p-2 mr-4 rounded-lg bg-[#16161a] w-fit h-fit flex flex-col justify-center items-center"
+            >
+                <button 
+                className="w-full p-3 text-xl font-medium hover:font-semibold tracking-wider border-b-2 border-slate-500"
+                >Log Out</button>
+
+                <button
+                className="p-3 text-xl text-[#db696d] font-medium hover:font-semibold tracking-wider"
+                >Delete Account</button>
+            </div>}
         </div>
     )
 }
