@@ -1,10 +1,10 @@
 import { rajdhani } from '@/lib/fonts'
-import { SetIntervals } from '@/lib/hooks'
+import { useToUpdateIntervalAndErrors } from '@/lib/hooks'
 import { intervals } from '@/lib/utils'
 import Image from 'next/image'
 
 export const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
-    const { errorMsg, updatedRange } = SetIntervals({ setFormData })
+    const { errorMsg, updatedRange } = useToUpdateIntervalAndErrors({ setFormData })
 
     return (
         <>
@@ -68,13 +68,11 @@ export const ListIntervals = ({ addInterval, removeInterval, setFormData }: any)
                         </div>
                     </div>
 
-                    {errorMsg != '' ? (
+                    {errorMsg != '' &&
                         <p className="text-center font-medium text-[#db696d] max-[500px]:mt-[20px]">
                             {errorMsg}
                         </p>
-                    ) : (
-                        <></>
-                    )}
+                    }
                 </div>
             ))}
         </>

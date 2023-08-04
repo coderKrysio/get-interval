@@ -6,11 +6,11 @@ import Link from 'next/link'
 import { MemberData, RoomCode } from '@/lib/types'
 import { API } from '@/lib/api'
 import { useRouter } from 'next/navigation'
-import { GetResult } from '@/lib/hooks'
+import { useToGetResult } from '@/lib/hooks'
 
 export const Results = ({ roomCode }: RoomCode) => {
     const router = useRouter()
-    const { result, membersData, time } = GetResult(roomCode)
+    const { result, membersData, time } = useToGetResult(roomCode)
 
     if (time === 0) {
         API.deleteRoom(roomCode)

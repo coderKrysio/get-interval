@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import {ListIntervals} from './ListIntervals'
 import { SetFormData } from '@/lib/types'
-import { WriteForm } from '@/lib/hooks'
+import { useToUpdateFormAndInterval } from '@/lib/hooks'
 
 export const Form = ({ setFormData }: SetFormData) => {
-    const { intLength, addInterval, removeInterval, handleChange } = WriteForm({
+    const { intLength, addInterval, removeInterval, handleChange } = useToUpdateFormAndInterval({
         setFormData,
     })
 
