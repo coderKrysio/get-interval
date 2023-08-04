@@ -1,10 +1,10 @@
-import { GetRoomCode } from '@/lib/utils'
+import { ToGetRoomCode } from '@/lib/utils'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 const LandingPage = () => {
     const router = useRouter()
-    const roomCode = GetRoomCode()
+    const roomCode = ToGetRoomCode()
 
     return (
         <div className="w-screen h-screen flex justify-center items-center text-white bg-[url(https://res.cloudinary.com/db7nrltsv/image/upload/v1690070858/Untitled_design_4_iyvlcc.png)] bg-center bg-cover bg-no-repeat">

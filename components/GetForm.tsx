@@ -1,11 +1,11 @@
 import Navbar from './Navbar'
-import { svgSrc } from '@/lib/utils'
 import Link from 'next/link'
 import { RoomCode } from '@/lib/types'
 import Form from './Form'
 import { SetForm } from '@/lib/hooks'
 import { API } from '@/lib/api'
 import { useRouter } from 'next/navigation'
+import { SVG_SRC } from '@/lib/utils'
 
 const GetForm = ({ roomCode }: RoomCode) => {
     const router = useRouter()
@@ -36,7 +36,7 @@ const GetForm = ({ roomCode }: RoomCode) => {
                 <div className="mt-[20px] ml-[20px] max-[985px]:hidden">
                     <iframe
                         className="border-none w-[450px] h-[275px] z-[-1]"
-                        src={svgSrc}
+                        src={SVG_SRC}
                     ></iframe>
                 </div>
 

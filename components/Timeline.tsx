@@ -1,6 +1,6 @@
 import { rajdhani } from '@/lib/fonts'
 import { TimeRange } from '@/lib/types'
-import { conditionMet, timeline } from '@/lib/utils'
+import { isConditionMet, TIME_LINE } from '@/lib/utils'
 
 const Timeline = ({ timeRanges }: TimeRange) => {
     const blockLine = (result: boolean, time: number) => {
@@ -32,16 +32,16 @@ const Timeline = ({ timeRanges }: TimeRange) => {
 
     return (
         <div className="mx-auto my-[40px] flex text-center px-2 select-none">
-            {timeline.map((time: number, index: number) => (
+            {TIME_LINE.map((time: number, index: number) => (
                 <div
                     key={index}
                     className={`w-[1px] text-center text-lg ${rajdhani.className}`}
                 >
                     {time % 60 == 0 ? (
-                        blockLine(conditionMet(time, timeRanges), time / 60)
+                        blockLine(isConditionMet(time, timeRanges), time / 60)
                     ) : (
                         <>
-                            {conditionMet(time, timeRanges) ? (
+                            {isConditionMet(time, timeRanges) ? (
                                 <div className="py-[20px] relative flex justify-start border-t-4 border-[#48d399]"></div>
                             ) : (
                                 <div className="py-[20px] relative flex justify-start border-t-4 border-[#db696d]"></div>

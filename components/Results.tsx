@@ -1,6 +1,6 @@
 import Timeline from './Timeline'
 import MemberInfo from './MemberInfo'
-import { NumToTime } from '@/lib/utils'
+import { ConvertNumToTime } from '@/lib/utils'
 import Navbar from './Navbar'
 import Link from 'next/link'
 import { MemberData, RoomCode } from '@/lib/types'
@@ -43,7 +43,7 @@ const Results = ({ roomCode }: RoomCode) => {
             ) : (
                 result.map((interval: number[], index: number) => (
                     <p className="text-3xl text-[#48d399] my-1" key={index}>
-                        {NumToTime(interval[0])} - {NumToTime(interval[1])}
+                        { ConvertNumToTime(interval[0]) } - { ConvertNumToTime(interval[1]) }
                     </p>
                 ))
             )}

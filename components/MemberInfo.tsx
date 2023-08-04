@@ -1,6 +1,6 @@
 import { rajdhani } from '@/lib/fonts'
 import { Info } from '@/lib/types'
-import { NumToTime } from '@/lib/utils'
+import { ConvertNumToTime } from '@/lib/utils'
 
 const MemberInfo = ({ name, intervals }: Info) => {
     return (
@@ -17,7 +17,7 @@ const MemberInfo = ({ name, intervals }: Info) => {
                         key={index}
                         className={`text-2xl tracking-wider font-medium ${rajdhani.className}`}
                     >
-                        {NumToTime(slot[0])} - {NumToTime(slot[1])}
+                        { ConvertNumToTime(slot[0]) } - { ConvertNumToTime(slot[1]) }
                     </p>
                 ))}
             </div>
