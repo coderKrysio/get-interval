@@ -1,7 +1,12 @@
 import Image from "next/image"
 import { Navbar } from "./Navbar"
+import { ToGetRoomCode } from "@/lib/utils"
+import { useRouter } from "next/navigation"
 
 export const Dashboard = () => {
+    const router = useRouter()
+    const roomCode = ToGetRoomCode()
+    
     return (
         <div className="w-screen h-screen flex justify-center items-center text-white">
             <Navbar />
@@ -16,7 +21,7 @@ export const Dashboard = () => {
 
                     <button
                         className="w-fit text-[#48d399] text-2xl font-medium px-7 py-2 flex items-center gap-3 rounded-lg border-[3px] border-[#48d399] outline outline-2 outline-transparent hover:outline-[#48d399]"
-                        // onClick={() => router.push(roomCode)}
+                        onClick={() => router.push(roomCode)}
                     >
                         Generate form link
                         <Image
