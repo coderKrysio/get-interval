@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Navbar = () => {
+export const Navbar = () => {
     return (
         <div className="fixed top-0 left-0 w-full bg-[#16161a] flex justify-start items-center gap-4 p-4 z-[10]">
             <Image
@@ -19,5 +19,3 @@ const Navbar = () => {
         </div>
     )
 }
-
-export default Navbar

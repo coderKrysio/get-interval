@@ -1,5 +1,5 @@
 'use client'
-import LandingPage from '@/components/LandingPage'
+import {LandingPage} from '@/components/LandingPage'
 import { Dashboard } from '@/components/dashboard/DashBoard'
 
 export default function Home() {

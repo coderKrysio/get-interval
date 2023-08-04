@@ -2,7 +2,7 @@ import { ToGetRoomCode } from '@/lib/utils'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-const LandingPage = () => {
+export const LandingPage = () => {
     const router = useRouter()
     const roomCode = ToGetRoomCode()
 
@@ -33,5 +33,3 @@ const LandingPage = () => {
         </div>
     )
 }
-
-export default LandingPage

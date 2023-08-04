@@ -2,7 +2,7 @@ import { rajdhani } from '@/lib/fonts'
 import { Info } from '@/lib/types'
 import { ConvertNumToTime } from '@/lib/utils'
 
-const MemberInfo = ({ name, intervals }: Info) => {
+export const MemberInfo = ({ name, intervals }: Info) => {
     return (
         <div className="min-h-36 w-[330px] rounded-lg bg-gradient-to-b from-[#48d399] via-[#21212b] to-[#db696d] p-1">
             <div className="w-full h-full bg-[#21212b] rounded-[4px] p-3 flex flex-col gap-[8px]">
@@ -24,5 +24,3 @@ const MemberInfo = ({ name, intervals }: Info) => {
         </div>
     )
 }
-
-export default MemberInfo

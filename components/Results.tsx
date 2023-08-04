@@ -1,14 +1,14 @@
-import Timeline from './Timeline'
-import MemberInfo from './MemberInfo'
+import {Timeline} from './Timeline'
+import {MemberInfo} from './MemberInfo'
 import { ConvertNumToTime } from '@/lib/utils'
-import Navbar from './Navbar'
+import {Navbar} from './Navbar'
 import Link from 'next/link'
 import { MemberData, RoomCode } from '@/lib/types'
 import { API } from '@/lib/api'
 import { useRouter } from 'next/navigation'
 import { GetResult } from '@/lib/hooks'
 
-const Results = ({ roomCode }: RoomCode) => {
+export const Results = ({ roomCode }: RoomCode) => {
     const router = useRouter()
     const { result, membersData, time } = GetResult(roomCode)
 
@@ -72,5 +72,3 @@ const Results = ({ roomCode }: RoomCode) => {
         </div>
     )
 }
-
-export default Results

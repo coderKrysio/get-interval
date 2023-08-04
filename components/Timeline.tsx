@@ -2,7 +2,7 @@ import { rajdhani } from '@/lib/fonts'
 import { TimeRange } from '@/lib/types'
 import { isConditionMet, TIME_LINE } from '@/lib/utils'
 
-const Timeline = ({ timeRanges }: TimeRange) => {
+export const Timeline = ({ timeRanges }: TimeRange) => {
     const blockLine = (result: boolean, time: number) => {
         if (result)
             return (
@@ -53,5 +53,3 @@ const Timeline = ({ timeRanges }: TimeRange) => {
         </div>
     )
 }
-
-export default Timeline

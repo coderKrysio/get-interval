@@ -3,7 +3,7 @@ import { SetIntervals } from '@/lib/hooks'
 import { intervals } from '@/lib/utils'
 import Image from 'next/image'
 
-const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
+export const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
     const { errorMsg, updatedRange } = SetIntervals({ setFormData })
 
     return (
@@ -80,5 +80,3 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
         </>
     )
 }
-
-export default ListIntervals

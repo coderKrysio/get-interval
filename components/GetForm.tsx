@@ -1,13 +1,13 @@
-import Navbar from './Navbar'
+import {Navbar} from './Navbar'
 import Link from 'next/link'
 import { RoomCode } from '@/lib/types'
-import Form from './Form'
+import { Form } from './Form'
 import { SetForm } from '@/lib/hooks'
 import { API } from '@/lib/api'
 import { useRouter } from 'next/navigation'
 import { SVG_SRC } from '@/lib/utils'
 
-const GetForm = ({ roomCode }: RoomCode) => {
+export const GetForm = ({ roomCode }: RoomCode) => {
     const router = useRouter()
     const { showError, setFormData, formData, setShowError } = SetForm(roomCode)
 
@@ -65,5 +65,3 @@ const GetForm = ({ roomCode }: RoomCode) => {
         </div>
     )
 }
-
-export default GetForm
