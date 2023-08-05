@@ -1,4 +1,7 @@
+import { useRouter } from "next/navigation"
+
 export const LandingPage = () => {
+    const router = useRouter()
     return (
         <div className="w-screen h-screen flex justify-center items-center text-white bg-[url(https://res.cloudinary.com/db7nrltsv/image/upload/v1690070858/Untitled_design_4_iyvlcc.png)] bg-center bg-cover bg-no-repeat">
             <div className="w-screen h-screen flex flex-col justify-center items-center bg-black/75 z-[2]">
@@ -12,9 +15,9 @@ export const LandingPage = () => {
 
                 <button
                     className="text-[#48d399] text-2xl font-medium tracking-wider px-7 py-2 m-6 flex items-center gap-3 rounded-lg border-[3px] border-[#48d399] outline outline-2 outline-transparent hover:outline-[#48d399] hover:font-semibold"
-                    // onClick={() => router.push(roomCode)}
+                    onClick={() => router.push('/sign-in')}
                 >
-                    Sign In / Up
+                    Sign In
                 </button>
 
                 <p
