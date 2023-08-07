@@ -1,3 +1,4 @@
+import { SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react"
@@ -29,9 +30,11 @@ export const Navbar = () => {
             {openOptions && <div
             className="absolute top-[65px] right-0 p-2 mr-4 rounded-lg bg-[#16161a] w-fit h-fit flex flex-col justify-center items-center"
             >
-                <button 
-                className="w-full p-3 text-xl font-medium hover:font-semibold tracking-wider border-b-2 border-slate-500"
-                >Log Out</button>
+                <SignOutButton>
+                    <button 
+                    className="w-full p-3 text-xl font-medium hover:font-semibold tracking-wider border-b-2 border-slate-500"
+                    >Sign Out</button>
+                </SignOutButton>
 
                 <button
                 className="p-3 text-xl text-[#db696d] font-medium hover:font-semibold tracking-wider"

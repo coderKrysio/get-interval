@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 export const LandingPage = () => {
@@ -13,16 +14,12 @@ export const LandingPage = () => {
                     Unite Your Free Time: Find Common Slots Together!
                 </p>
 
-                <button
-                    className="text-[#48d399] text-2xl font-medium tracking-wider px-7 py-2 m-6 flex items-center gap-3 rounded-lg border-[3px] border-[#48d399] outline outline-2 outline-transparent hover:outline-[#48d399] hover:font-semibold"
-                    onClick={() => router.push('/sign-in')}
+                <Link
+                    className="text-[#48d399] text-2xl font-semibold tracking-wider px-7 py-2 m-6 flex items-center gap-3 rounded-lg border-[3px] border-[#48d399] outline outline-2 outline-transparent hover:outline-[#48d399]"
+                    href={'/sign-in'}
                 >
-                    Sign In
-                </button>
-
-                <p
-                className="mt-[10px] tracking-wider text-center "
-                >* Passwordless Sign In / Up Options</p>
+                    Get Started
+                </Link>
             </div>
         </div>
     )
