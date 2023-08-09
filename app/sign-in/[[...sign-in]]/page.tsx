@@ -1,6 +1,8 @@
-import { SignIn } from "@clerk/nextjs";
+import { SignIn, auth, } from "@clerk/nextjs";
 
 export default function Page() {
+    const { userId } = auth();
+    console.log(userId, "this is the id")
     return (
         <div
         className="w-screen h-screen flex justify-center items-center bg-black"

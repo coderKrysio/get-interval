@@ -1,6 +1,6 @@
 'use client'
 import {LandingPage} from '@/components/LandingPage'
-import { useAuth, useUser } from '@clerk/nextjs';
+import { auth, useAuth, useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
@@ -16,5 +16,5 @@ export default function Home() {
         )
     }
 
-    return router.push('/dashboard')
+    return router.push(`/dashboard/${userId.substring(5)}`)
 }
