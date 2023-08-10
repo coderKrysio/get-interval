@@ -22,10 +22,9 @@ export const Dashboard = () => {
                     className="text-3xl font-[500] tracking-wider"
                     >Hey, {user?.firstName}</p>
 
-                    <Link
+                    <button
                         className="w-fit text-[#48d399] text-2xl font-medium px-7 py-2 flex items-center gap-3 rounded-lg border-[3px] border-[#48d399] outline outline-2 outline-transparent hover:outline-[#48d399]"
-                        href={roomCode}
-                        target="_top"
+                        onClick={() => router.replace(`/${roomCode}`)}
                     >
                         Generate form link
                         <Image
@@ -34,7 +33,7 @@ export const Dashboard = () => {
                             src="https://img.icons8.com/48d399/external-tanah-basah-basic-outline-tanah-basah/96/external-share-arrows-pack-tanah-basah-basic-outline-tanah-basah.png"
                             alt="share"
                         />
-                    </Link>
+                    </button>
                 </div>
 
                 <div className="w-full">
