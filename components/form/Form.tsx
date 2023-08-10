@@ -1,3 +1,4 @@
+'use client'
 import { useEffect } from 'react'
 import {ListIntervals} from './ListIntervals'
 import { SetFormData } from '@/lib/types'

@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import { RoomCode } from '@/lib/types'
 import { Form } from './Form'

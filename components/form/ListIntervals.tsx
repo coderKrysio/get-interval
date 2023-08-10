@@ -1,3 +1,4 @@
+'use client'
 import { rajdhani } from '@/lib/fonts'
 import { useToUpdateIntervalAndErrors } from '@/lib/hooks'
 import { intervals } from '@/lib/utils'

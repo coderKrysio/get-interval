@@ -1,9 +1,9 @@
+'use client'
 import Image from "next/image"
 import { Navbar } from "./Navbar"
 import { ToGetRoomCode } from "@/lib/utils"
 import { useRouter } from "next/navigation"
 import { useAuth, useUser } from "@clerk/nextjs"
-import Link from "next/link"
 
 export const Dashboard = () => {
     const router = useRouter()
