@@ -7,6 +7,7 @@ import { API } from '@/lib/api'
 import { useRouter } from 'next/navigation'
 import { SVG_SRC } from '@/lib/utils'
 import { Navbar } from '../Navbar'
+import Image from 'next/image'
 
 export const GetForm = ({ roomCode }: RoomCode) => {
     const router = useRouter()
@@ -33,6 +34,15 @@ export const GetForm = ({ roomCode }: RoomCode) => {
 
                     <Form {...{ setFormData }} />
                 </div>
+
+                <button className='absolute right-0 mr-6'>
+                    <Image
+                        src={'/share.png'}
+                        alt="share"
+                        width={15}
+                        height={15}
+                    />
+                </button>
 
                 <div className="mt-[20px] ml-[20px] max-[985px]:hidden">
                     <iframe

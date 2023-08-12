@@ -28,10 +28,10 @@ export const Navbar = () => {
             onClick={() => setOpenOptions((prev: boolean) => !prev)}
             >
                 <Image
-                src={'/menu.png'}
-                alt="menu"
-                width={15}
-                height={15}
+                src={'/options.png'}
+                alt="options"
+                width={35}
+                height={35}
                 />
             </button>
 

@@ -21,13 +21,19 @@ export const Results = ({ roomCode }: RoomCode) => {
         <div className="w-screen min-h-screen flex flex-col justify-center items-center text-white bg-[#16161a] py-[70px]">
             <Navbar />
 
-            <div className="w-full px-10 flex justify-start items-center my-[30px] max-[600px]:justify-center">
+            <div className="w-full px-10 flex justify-between items-center my-[30px] max-[600px]:justify-center">
                 <Link
                     className="text-2xl font-medium tracking-wide py-2 px-5 border-2 border-white rounded-lg outline outlint-2 outline-transparent hover:outline-white"
                     href={`/${roomCode}`}
                 >
                     Back
                 </Link>
+
+                <button
+                    className="text-2xl font-medium tracking-wide py-2 px-5 border-2 border-white rounded-lg outline outlint-2 outline-transparent hover:outline-white"
+                >
+                    Share
+                </button>
             </div>
 
             <h2 className="text-5xl text-center font-semibold tracking-wide m-2">
@@ -56,9 +62,9 @@ export const Results = ({ roomCode }: RoomCode) => {
                 Members Info
             </p>
 
-            <div className="max-w[1200px] grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-start gap-[70px]">
+            <div className="max-w[1200px] flex flex-wrap justify-center items-center gap-[70px]">
                 {membersData.length == 0 ? (
-                    <p className="text-2xl text-[#db696d]">No Data Found</p>
+                    <p className="text-2xl text-center text-[#db696d]">No Data Found</p>
                 ) : (
                     membersData.map((values: MemberData, id: number) => (
                         <MemberInfo

@@ -18,7 +18,7 @@ export const Dashboard = () => {
             <div
             className="w-screen h-screen p-[70px] pb-[20px] flex flex-col overflow-hidden"
             >
-                <div className="flex justify-between items-center my-[40px] ">
+                <div className="flex justify-between items-center my-[30px] ">
                     <p
                     className="text-3xl font-[500] tracking-wider"
                     >Hey, {user?.firstName}</p>
