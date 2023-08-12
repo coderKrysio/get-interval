@@ -5,7 +5,7 @@ import { Form } from './Form'
 import { useToSetFormData } from '@/lib/hooks'
 import { API } from '@/lib/api'
 import { useRouter } from 'next/navigation'
-import { SVG_SRC } from '@/lib/utils'
+import { CopyToClipboard, SVG_SRC } from '@/lib/utils'
 import { Navbar } from '../Navbar'
 import Image from 'next/image'
 
@@ -35,7 +35,7 @@ export const GetForm = ({ roomCode }: RoomCode) => {
                     <Form {...{ setFormData }} />
                 </div>
 
-                <button className='absolute right-0 mr-6'>
+                <button className='absolute right-0 mr-6' onClick={CopyToClipboard}>
                     <Image
                         src={'/share.png'}
                         alt="share"

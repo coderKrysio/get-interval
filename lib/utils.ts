@@ -40,3 +40,8 @@ export const isConditionMet = (time: number, timeRanges: number[][]) => {
     }
     return false
 }
+
+export const CopyToClipboard = () => {
+    let url: string = window.location.toString();
+    navigator.clipboard.writeText(url.substring(0, url.lastIndexOf('/')))
+}

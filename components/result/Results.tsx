@@ -1,6 +1,6 @@
 import {Timeline} from './Timeline'
 import {MemberInfo} from './MemberInfo'
-import { ConvertNumToTime } from '@/lib/utils'
+import { ConvertNumToTime, CopyToClipboard } from '@/lib/utils'
 import {Navbar} from '../Navbar'
 import Link from 'next/link'
 import { MemberData, RoomCode } from '@/lib/types'
@@ -12,11 +12,6 @@ import Image from 'next/image'
 export const Results = ({ roomCode }: RoomCode) => {
     const router = useRouter()
     const { result, membersData, time } = useToGetResult(roomCode)
-
-    const copyToClipboard = () => {
-        let url: string = window.location.toString();
-        navigator.clipboard.writeText(url.substring(0, url.lastIndexOf('/')))
-    }
 
     if (time === 0) {
         API.deleteRoom(roomCode)
@@ -40,7 +35,7 @@ export const Results = ({ roomCode }: RoomCode) => {
                 </Link>
 
                 <button
-                    onClick={copyToClipboard}
+                    onClick={CopyToClipboard}
                 >
                     <Image
                         src={'/share.png'}
