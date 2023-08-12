@@ -23,7 +23,7 @@ export const PreviousResults = () => {
                         <Image
                             width="20"
                             height="20"
-                            src="https://img.icons8.com/color/96/delete-forever.png"
+                            src="/remove.png"
                             alt="delete"
                         />
                     </button>

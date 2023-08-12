@@ -48,7 +48,7 @@ export const ListIntervals = ({ addInterval, removeInterval, setFormData }: any)
                                 <Image
                                     width="60"
                                     height="60"
-                                    src="https://img.icons8.com/48d399/doodle/96/000000/add.png"
+                                    src="/add.png"
                                     alt="add"
                                 />
                             </button>
@@ -61,7 +61,7 @@ export const ListIntervals = ({ addInterval, removeInterval, setFormData }: any)
                                     <Image
                                         width="60"
                                         height="60"
-                                        src="https://img.icons8.com/color/96/delete-forever.png"
+                                        src="/remove.png"
                                         alt="remove"
                                     />
                                 </button>
