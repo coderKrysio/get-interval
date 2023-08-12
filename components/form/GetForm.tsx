@@ -11,7 +11,7 @@ import Image from 'next/image'
 
 export const GetForm = ({ roomCode }: RoomCode) => {
     const router = useRouter()
-    const { showError, setFormData, formData, setShowError } = useToSetFormData(roomCode)
+    const { showError, setFormData, showMessage, setShowMessage, formData, setShowError } = useToSetFormData(roomCode)
 
     const checkFields = () => {
         if (formData.name === '') setShowError(true)
@@ -20,6 +20,12 @@ export const GetForm = ({ roomCode }: RoomCode) => {
             API.postData(formData)
             router.push(`/${roomCode}/result`)
         }
+    }
+
+    const copyToShare = () => {
+        CopyToClipboard()
+        setShowMessage(true)
+        setTimeout(() => setShowMessage(false), 1500)
     }
 
     return (
@@ -35,7 +41,7 @@ export const GetForm = ({ roomCode }: RoomCode) => {
                     <Form {...{ setFormData }} />
                 </div>
 
-                <button className='absolute right-0 mr-6' onClick={CopyToClipboard}>
+                <button className='absolute right-0 mr-6' onClick={copyToShare}>
                     <Image
                         src={'/share.png'}
                         alt="share"
@@ -73,6 +79,18 @@ export const GetForm = ({ roomCode }: RoomCode) => {
                     )}
                 </div>
             </div>
+
+            {showMessage && <ClipboardMessage />}
+        </div>
+    )
+}
+
+export const ClipboardMessage = () => {
+    return (
+        <div
+        className='absolute bottom-0 mb-[20px] rounded-lg bg-gradient-to-b from-[#48d399] via-[#21212b] to-[#db696d] p-1 z-[10]'
+        >
+            <p className='w-full bg-[#21212b] rounded-[4px] text-xl tracking-wider font-semibold py-2 px-4'>Copied to Clipboard!</p>
         </div>
     )
 }

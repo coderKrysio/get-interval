@@ -8,10 +8,17 @@ import { API } from '@/lib/api'
 import { useRouter } from 'next/navigation'
 import { useToGetResult } from '@/lib/hooks'
 import Image from 'next/image'
+import { ClipboardMessage } from '../form/GetForm'
 
 export const Results = ({ roomCode }: RoomCode) => {
     const router = useRouter()
-    const { result, membersData, time } = useToGetResult(roomCode)
+    const { result, membersData, time, showMessage, setShowMessage } = useToGetResult(roomCode)
+
+    const copyToShare = () => {
+        CopyToClipboard()
+        setShowMessage(true)
+        setTimeout(() => setShowMessage(false), 1500)
+    }
 
     if (time === 0) {
         API.deleteRoom(roomCode)
@@ -35,7 +42,7 @@ export const Results = ({ roomCode }: RoomCode) => {
                 </Link>
 
                 <button
-                    onClick={CopyToClipboard}
+                    onClick={copyToShare}
                 >
                     <Image
                         src={'/share.png'}
@@ -85,6 +92,8 @@ export const Results = ({ roomCode }: RoomCode) => {
                     ))
                 )}
             </div>
+
+            {showMessage && <ClipboardMessage />}
         </div>
     )
 }

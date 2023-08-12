@@ -7,6 +7,7 @@ export const useToGetResult = (roomCode: string) => {
     const [result, setResult] = useState<number[][]>([])
     const [membersData, setMembersData] = useState<MemberData[]>([])
     const [time, setTime] = useState<number>(7200000)
+    const [showMessage, setShowMessage] = useState<boolean>(false)
 
     const intervalRef = useRef<ReturnType<typeof setInterval>>()
     const decreaseNum = () => setTime((prev) => prev - 1)
@@ -25,7 +26,7 @@ export const useToGetResult = (roomCode: string) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    return { result, membersData, time }
+    return { result, membersData, time, showMessage, setShowMessage }
 }
 
 export const useToUpdateFormAndInterval = ({ setFormData }: SetFormData) => {
@@ -55,13 +56,14 @@ export const useToUpdateFormAndInterval = ({ setFormData }: SetFormData) => {
 
 export const useToSetFormData = (roomCode: string) => {
     const [showError, setShowError] = useState<boolean>(false)
+    const [showMessage, setShowMessage] = useState<boolean>(false)
     const [formData, setFormData] = useState<FormData>({
         name: '',
         roomCode: roomCode,
         intervals: [START_INTERVAL],
     })
 
-    return { showError, setFormData, formData, setShowError }
+    return { showError, setFormData, showMessage, setShowMessage, formData, setShowError }
 }
 
 export const useToUpdateIntervalAndErrors = ({ setFormData }: SetFormData) => {
