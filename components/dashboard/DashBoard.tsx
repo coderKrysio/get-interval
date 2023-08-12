@@ -4,6 +4,7 @@ import { Navbar } from "./Navbar"
 import { ToGetRoomCode } from "@/lib/utils"
 import { useRouter } from "next/navigation"
 import { useAuth, useUser } from "@clerk/nextjs"
+import { PreviousResults } from "./PreviousResults"
 
 export const Dashboard = () => {
     const router = useRouter()
@@ -15,7 +16,7 @@ export const Dashboard = () => {
             <Navbar />
 
             <div
-            className="w-screen h-screen p-[70px] flex flex-col"
+            className="w-screen h-screen p-[70px] pb-[20px] flex flex-col overflow-hidden"
             >
                 <div className="flex justify-between items-center my-[40px] ">
                     <p
@@ -36,9 +37,18 @@ export const Dashboard = () => {
                     </button>
                 </div>
 
-                <div className="w-full">
+                <div className="w-full flex flex-col justify-center items-center overflow-auto">
                     <p className="text-2xl w-full border-b-2 border-slate-500 pb-[15px]"
                     >Previous Forms</p>
+
+                    <div className="w-full flex flex-wrap justify-center items-center p-7 mt-[20px] gap-[80px] overflow-y-scroll">
+                        <PreviousResults />
+                        <PreviousResults />
+                        <PreviousResults />
+                        <PreviousResults />
+                        <PreviousResults />
+                        <PreviousResults />
+                    </div>
                 </div>
             </div>
         </div>

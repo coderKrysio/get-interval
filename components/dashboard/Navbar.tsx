@@ -26,7 +26,14 @@ export const Navbar = () => {
             <button
             className=""
             onClick={() => setOpenOptions((prev: boolean) => !prev)}
-            >options</button>
+            >
+                <Image
+                src={'/menu.png'}
+                alt="menu"
+                width={15}
+                height={15}
+                />
+            </button>
 
             {openOptions && <div
             className="absolute top-[65px] right-0 p-2 mr-4 rounded-lg bg-[#16161a] w-fit h-fit flex flex-col justify-center items-center"
