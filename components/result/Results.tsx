@@ -7,10 +7,16 @@ import { MemberData, RoomCode } from '@/lib/types'
 import { API } from '@/lib/api'
 import { useRouter } from 'next/navigation'
 import { useToGetResult } from '@/lib/hooks'
+import Image from 'next/image'
 
 export const Results = ({ roomCode }: RoomCode) => {
     const router = useRouter()
     const { result, membersData, time } = useToGetResult(roomCode)
+
+    const copyToClipboard = () => {
+        let url: string = window.location.toString();
+        navigator.clipboard.writeText(url.substring(0, url.lastIndexOf('/')))
+    }
 
     if (time === 0) {
         API.deleteRoom(roomCode)
@@ -18,21 +24,30 @@ export const Results = ({ roomCode }: RoomCode) => {
     }
 
     return (
-        <div className="w-screen min-h-screen flex flex-col justify-center items-center text-white bg-[#16161a] py-[70px]">
+        <div className="w-screen min-h-screen flex flex-col justify-start items-center text-white bg-[#000] py-[70px]">
             <Navbar />
 
             <div className="w-full px-10 flex justify-between items-center my-[30px] max-[600px]:justify-center">
                 <Link
-                    className="text-2xl font-medium tracking-wide py-2 px-5 border-2 border-white rounded-lg outline outlint-2 outline-transparent hover:outline-white"
                     href={`/${roomCode}`}
                 >
-                    Back
+                    <Image
+                        src={'/back.png'}
+                        alt="back"
+                        width={30}
+                        height={30}
+                    />
                 </Link>
 
                 <button
-                    className="text-2xl font-medium tracking-wide py-2 px-5 border-2 border-white rounded-lg outline outlint-2 outline-transparent hover:outline-white"
+                    onClick={copyToClipboard}
                 >
-                    Share
+                    <Image
+                        src={'/share.png'}
+                        alt="share"
+                        width={20}
+                        height={20}
+                    />
                 </button>
             </div>
 
