@@ -3,7 +3,7 @@ import Image from "next/image"
 import { Navbar } from "./Navbar"
 import { ToGetRoomCode } from "@/lib/utils"
 import { useRouter } from "next/navigation"
-import { useAuth, useUser } from "@clerk/nextjs"
+import { useUser } from "@clerk/nextjs"
 import { PreviousResults } from "./PreviousResults"
 
 export const Dashboard = () => {
