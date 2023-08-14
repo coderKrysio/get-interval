@@ -1,15 +1,16 @@
-import Navbar from './Navbar'
-import { svgSrc } from '@/lib/utils'
+'use client'
 import Link from 'next/link'
 import { RoomCode } from '@/lib/types'
-import Form from './Form'
-import { SetForm } from '@/lib/hooks'
+import { Form } from './Form'
+import { useToSetFormData } from '@/lib/hooks'
 import { API } from '@/lib/api'
 import { useRouter } from 'next/navigation'
+import { SVG_SRC } from '@/lib/utils'
+import { Navbar } from '../Navbar'
 
-const GetForm = ({ roomCode }: RoomCode) => {
+export const GetForm = ({ roomCode }: RoomCode) => {
     const router = useRouter()
-    const { showError, setFormData, formData, setShowError } = SetForm(roomCode)
+    const { showError, setFormData, formData, setShowError } = useToSetFormData(roomCode)
 
     const checkFields = () => {
         if (formData.name === '') setShowError(true)
@@ -36,11 +37,11 @@ const GetForm = ({ roomCode }: RoomCode) => {
                 <div className="mt-[20px] ml-[20px] max-[985px]:hidden">
                     <iframe
                         className="border-none w-[450px] h-[275px] z-[-1]"
-                        src={svgSrc}
+                        src={SVG_SRC}
                     ></iframe>
                 </div>
 
-                <div className="absolute bottom-0 right-0 m-8 mb-[42px] flex gap-6 max-[985px]:relative max-[985px]:my-0 max-[985px]:mx-auto">
+                <div className="absolute bottom-0 right-0 m-8 mb-[42px] flex gap-6 max-[985px]:relative max-[985px]:my-0 max-[985px]:mx-auto max-[500px]:mt-[20px]">
                     <button
                         className="py-2 px-5 border-[3px] border-white rounded-lg text-xl font-medium hover:font-semibold hover:border-[#48d399] hover:text-[#48d399]"
                         onClick={() => checkFields()}
@@ -65,5 +66,3 @@ const GetForm = ({ roomCode }: RoomCode) => {
         </div>
     )
 }
-
-export default GetForm

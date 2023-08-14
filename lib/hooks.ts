@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react'
 import { API } from './api'
 import { FormData, MemberData, SetFormData } from './types'
-import { intervals, timeIntervals } from './utils'
+import { intervals, START_INTERVAL } from './utils'
 
-export const GetResult = (roomCode: string) => {
+export const useToGetResult = (roomCode: string) => {
     const [result, setResult] = useState<number[][]>([])
     const [membersData, setMembersData] = useState<MemberData[]>([])
     const [time, setTime] = useState<number>(7200000)
@@ -28,11 +28,11 @@ export const GetResult = (roomCode: string) => {
     return { result, membersData, time }
 }
 
-export const WriteForm = ({ setFormData }: SetFormData) => {
+export const useToUpdateFormAndInterval = ({ setFormData }: SetFormData) => {
     const [intLength, setIntLength] = useState<number>(intervals.length)
 
     const addInterval = () => {
-        intervals.push(timeIntervals)
+        intervals.push(START_INTERVAL)
         setIntLength(intervals.length)
         handleChange('intervals', intervals)
     }
@@ -53,18 +53,18 @@ export const WriteForm = ({ setFormData }: SetFormData) => {
     return { intLength, addInterval, removeInterval, handleChange }
 }
 
-export const SetForm = (roomCode: string) => {
+export const useToSetFormData = (roomCode: string) => {
     const [showError, setShowError] = useState<boolean>(false)
     const [formData, setFormData] = useState<FormData>({
         name: '',
         roomCode: roomCode,
-        intervals: [timeIntervals],
+        intervals: [START_INTERVAL],
     })
 
     return { showError, setFormData, formData, setShowError }
 }
 
-export const SetIntervals = ({ setFormData }: SetFormData) => {
+export const useToUpdateIntervalAndErrors = ({ setFormData }: SetFormData) => {
     const [errorMsg, setErrorMsg] = useState<string>('')
     const [arrIndex, setArrIndex] = useState<number>(0)
 

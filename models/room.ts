@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, models } from 'mongoose'
+import mongoose, { Schema, model, models } from 'mongoose';
 
 const RoomSchema = new Schema({
     username: {
@@ -20,7 +20,7 @@ const RoomSchema = new Schema({
             required: true,
         },
     ],
-})
+});
 
-const Room = models.Room || model('Room', RoomSchema)
-export default Room
+const Room = models.Room || model('Room', RoomSchema);
+export default Room;

@@ -1,10 +1,11 @@
+'use client'
 import { rajdhani } from '@/lib/fonts'
-import { SetIntervals } from '@/lib/hooks'
+import { useToUpdateIntervalAndErrors } from '@/lib/hooks'
 import { intervals } from '@/lib/utils'
 import Image from 'next/image'
 
-const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
-    const { errorMsg, updatedRange } = SetIntervals({ setFormData })
+export const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
+    const { errorMsg, updatedRange } = useToUpdateIntervalAndErrors({ setFormData })
 
     return (
         <>
@@ -26,7 +27,7 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
                             defaultValue={'08:00'}
                             name="start"
                             onChange={(e: any) => updatedRange(e, index)}
-                            className={`border-2 border-white text-black text-[24px] font-semibold rounded-lg py-[3px] px-4 m-1 focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399] focus:bg-transparent focus:text-white ${rajdhani.className}`}
+                            className={`border-2 border-white text-black text-[24px] font-semibold rounded-lg py-[3px] px-4 m-1 focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399] focus:bg-transparent focus:text-white max-[500px]:w-fit ${rajdhani.className}`}
                         />
 
                         <span className="font-semibold text-2xl">-</span>
@@ -36,7 +37,7 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
                             defaultValue={'10:00'}
                             name="end"
                             onChange={(e: any) => updatedRange(e, index)}
-                            className={`border-2 border-white text-black text-[24px] font-semibold rounded-lg py-[3px] px-4 m-1 focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399] focus:bg-transparent focus:text-white ${rajdhani.className}`}
+                            className={`border-2 border-white text-black text-[24px] font-semibold rounded-lg py-[3px] px-4 m-1 focus:outline focus:outline-2 focus:outline-[#48d399] focus:border-[#48d399] focus:bg-transparent focus:text-white max-[500px]:w-fit ${rajdhani.className}`}
                         />
 
                         <div className="flex max-[500px]:absolute gap-[15px] max-[500px]:-bottom-full">
@@ -68,17 +69,13 @@ const ListIntervals = ({ addInterval, removeInterval, setFormData }: any) => {
                         </div>
                     </div>
 
-                    {errorMsg != '' ? (
+                    {errorMsg != '' &&
                         <p className="text-center font-medium text-[#db696d] max-[500px]:mt-[20px]">
                             {errorMsg}
                         </p>
-                    ) : (
-                        <></>
-                    )}
+                    }
                 </div>
             ))}
         </>
     )
 }
-
-export default ListIntervals
