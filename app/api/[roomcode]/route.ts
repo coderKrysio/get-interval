@@ -18,15 +18,9 @@ export async function GET(request: Request, context: RoomCodeRouteContext) {
         }
 
         //to get all the intervals in a single array
-        let intervals: number[][] = [];
-        let counter = 0;
-        for (let i = 0; i < rooms.length; i++) {
-            var room = rooms[i].timeRanges;
-            for (let j = 0; j < room.length; j++) {
-                intervals[counter] = room[j];
-                counter++;
-            }
-        }
+        let intervals: number[][] = rooms.map((room) =>
+            room.timeRanges.map((interval: number[]) => interval)
+        );
 
         //to sort the array
         for (let i = 0; i < intervals.length - 1; i++) {
